@@ -1,0 +1,20 @@
+/* COLORS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FFE2EF;
+}
+
+.pikachu {
+  position: absolute;
+  top: 20%;
+  left: calc((100% - 48px)/2);
+  height: 5px;
+  width: 5px;
+  background: #333;
+  box-shadow: 5px 0 #333, 55px 0 #333, -5px 5px #333, 0px 5px #333, 5px 5px #333, 50px 5px #333, 55px 5px #FFEE32, 60px 5px #333, -5px 10px #333, 0px 10px #FFEE32, 5px 10px #333, 45px 10px #333, 50px 10px #FFEE32, 55px 10px #FFD338, 60px 10px #FFD338, 65px 10px #333, -10px 15px #333, -5px 15px #FFEE32, 0px 15px #FFEE32, 5px 15px #333, 30px 15px #333, 35px 15px #333, 40px 15px #333, 45px 15px #FFEE32, 50px 15px #FFD338, 55px 15px #FFD338, 60px 15px #FFD338, 65px 15px #333, -10px 20px #333, -5px 20px #FFEE32, 0px 20px #FFD338, 5px 20px #333, 20px 20px #333, 25px 20px #333, 30px 20px #6B3904, 35px 20px #6B3904, 40px 20px #333, 45px 20px #FFD338, 50px 20px #FFD338, 55px 20px #FFD338, 60px 20px #333, -15px 25px #333, -10px 25px #FFEE32, -5px 25px #FFEE32, 0px 25px #FFEE32, 5px 25px #FFEE32, 10px 25px #333, 15px 25px #333, 20px 25px #FFEE32, 25px 25px #FFEE32, 30px 25px #6B3904, 35px 25px #333, 40px 25px #FFD338, 45px 25px #FFD338, 50px 25px #FFD338, 55px 25px #333, -20px 30px #333, -15px 30px #FFEE32, -10px 30px #FFEE32, -5px 30px #FFEE32, 0px 30px #FFEE32, 5px 30px #FFEE32, 10px 30px #FFEE32, 15px 30px #FFEE32, 20px 30px #FFEE32, 25px 30px #FFEE32, 30px 30px #333, 35px 30px #333, 40px 30px #FFD338, 45px 30px #FFD338, 50px 30px #333, -25px 35px #333, -20px 35px #fff, -15px 35px #FFEE32, -10px 35px #FFEE32, -5px 35px #FFEE32, 0px 35px #FFEE32, 5px 35px #FFEE32, 10px 35px #FFEE32, 15px 35px #FFEE32, 20px 35px #FFEE32, 25px 35px #FFD338, 30px 35px #333, 40px 35px #333, 45px 35px #FFD338, 50px 35px #FFD338, 55px 35px #333, -25px 40px #333, -20px 40px #333, -15px 40px #FFEE32, -10px 40px #FFEE32, -5px 40px #FFEE32, 0px 40px #FFEE32, 5px 40px #FFEE32, 10px 40px #FFEE32, 15px 40px #FFEE32, 20px 40px #FFEE32, 25px 40px #FFEE32, 30px 40px #333, 45px 40px #333, 50px 40px #FFD338, 55px 40px #333, -25px 45px #333, -20px 45px #FFEE32, -15px 45px #FFEE32, -10px 45px #FFEE32, -5px 45px #FFEE32, 0px 45px #fff, 5px 45px #333, 10px 45px #FFEE32, 15px 45px #FFEE32, 20px 45px #FFEE32, 25px 45px #FFEE32, 30px 45px #FFD338, 35px 45px #333, 40px 45px #333, 45px 45px #FFD338, 50px 45px #333, -20px 50px #333, -15px 50px #FFEE32, -10px 50px #FFEE32, -5px 50px #FFEE32, 0px 50px #333, 5px 50px #333, 10px 50px #FF3D32, 15px 50px #FF3D32, 20px 50px #FFEE32, 25px 50px #FFD338, 30px 50px #FFD338, 35px 50px #333, 40px 50px #333, 45px 50px #333, -15px 55px #333, -10px 55px #FFD338, -5px 55px #FFEE32, 0px 55px #FFEE32, 5px 55px #FFEE32, 10px 55px #FF3D32, 15px 55px #FFD338, 20px 55px #FFD338, 25px 55px #FFD338, 30px 55px #6B3904, 35px 55px #6B3904, 40px 55px #333, -20px 60px #333, -15px 60px #FFD338, -10px 60px #FFD338, -5px 60px #FFD338, 0px 60px #FFD338, 5px 60px #FFD338, 10px 60px #FFD338, 15px 60px #FFD338, 20px 60px #FFD338, 25px 60px #FFD338, 30px 60px #FFD338, 35px 60px #FFD338, 40px 60px #333, -15px 65px #333, -10px 65px #333, -5px 65px #FFEE32, 0px 65px #FFEE32, 5px 65px #FFEE32, 10px 65px #FFEE32, 15px 65px #FFEE32, 20px 65px #FFD338, 25px 65px #FFD338, 30px 65px #FFD338, 35px 65px #6B3904, 40px 65px #333, -10px 70px #333, -5px 70px #FFD338, 0px 70px #FFEE32, 5px 70px #FFEE32, 10px 70px #FFEE32, 15px 70px #FFEE32, 20px 70px #FFD338, 25px 70px #FFD338, 30px 70px #FFD338, 35px 70px #FFD338, 40px 70px #333, -15px 75px #333, -10px 75px #FFD338, -5px 75px #333, 0px 75px #FFD338, 5px 75px #FFD338, 10px 75px #FFD338, 15px 75px #FFD338, 20px 75px #FFD338, 25px 75px #FFD338, 30px 75px #FFD338, 35px 75px #FFD338, 40px 75px #333, -15px 80px #333, -10px 80px #333, -5px 80px #333, 0px 80px #333, 5px 80px #333, 10px 80px #FFD338, 15px 80px #FFD338, 20px 80px #FFD338, 25px 80px #FFD338, 30px 80px #FFD338, 35px 80px #333, 10px 85px #333, 15px 85px #333, 20px 85px #333, 25px 85px #FFD338, 30px 85px #333, 35px 85px #333, 15px 90px #333, 20px 90px #FFD338, 25px 90px #FFD338, 30px 90px #FFD338, 35px 90px #333, 20px 95px #333, 25px 95px #333, 30px 95px #333;
+}

@@ -1,0 +1,137 @@
+/* COLORS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FFF4D8;
+}
+
+.canvas {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 350px;
+  width: 350px;
+}
+
+.mini-pizza .cheese .mozzarella:nth-child(1), .mini-pizza .cheese .mozzarella:nth-child(2), .mini-pizza .cheese .mozzarella:nth-child(3), .mini-pizza .cheese .mozzarella:nth-child(4), .mini-pizza .cheese .mozzarella:nth-child(5), .mini-pizza .cheese .mozzarella:nth-child(6), .mini-pizza .cheese .mozzarella:nth-child(7) {
+  position: absolute;
+  background: #fff;
+  border-radius: 45%;
+}
+
+.mini-pizza .basil .leaf:nth-child(1), .mini-pizza .basil .leaf:nth-child(2), .mini-pizza .basil .leaf:nth-child(3), .mini-pizza .basil .leaf:nth-child(4), .mini-pizza .basil .leaf:nth-child(5), .mini-pizza .basil .leaf:nth-child(7), .mini-pizza .basil .leaf:nth-child(8), .mini-pizza .basil .leaf:nth-child(9), .mini-pizza .basil .leaf:nth-child(10) {
+  position: absolute;
+  height: 13%;
+  width: 12%;
+  border-radius: 50% 50% 60% 60%;
+  background: #9CC471;
+}
+
+.mini-pizza {
+  position: absolute;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+  background: #F7CB85;
+  border-radius: 50%;
+}
+.mini-pizza .crust {
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  height: 95%;
+  width: 95%;
+  border-radius: 50%;
+  background: #C45E4C;
+  border: 8px solid #FFD289;
+}
+.mini-pizza .cheese .mozzarella:nth-child(1) {
+  top: 5%;
+  left: 18%;
+  height: 30%;
+  width: 30%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(2) {
+  top: 8%;
+  right: 20%;
+  height: 27%;
+  width: 27%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(3) {
+  top: 35%;
+  left: 5%;
+  height: 25%;
+  width: 25%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(4) {
+  top: 32%;
+  left: 32%;
+  height: 33%;
+  width: 33%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(5) {
+  top: 35%;
+  right: 5%;
+  height: 32%;
+  width: 30%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(6) {
+  bottom: 8%;
+  right: 20%;
+  height: 26%;
+  width: 26%;
+}
+.mini-pizza .cheese .mozzarella:nth-child(7) {
+  bottom: 10%;
+  left: 18%;
+  height: 30%;
+  width: 30%;
+}
+.mini-pizza .basil .leaf:nth-child(1) {
+  top: 5%;
+  left: 30%;
+  transform: rotate(10deg);
+}
+.mini-pizza .basil .leaf:nth-child(2) {
+  top: 22%;
+  left: 15%;
+  transform: rotate(-20deg);
+}
+.mini-pizza .basil .leaf:nth-child(3) {
+  top: 13%;
+  right: 28%;
+}
+.mini-pizza .basil .leaf:nth-child(4) {
+  top: 40%;
+  left: 40%;
+  transform: rotate(-50deg);
+}
+.mini-pizza .basil .leaf:nth-child(5) {
+  top: 45%;
+  left: 18%;
+  transform: rotate(30deg);
+}
+.mini-pizza .basil .leaf:nth-child(7) {
+  bottom: 25%;
+  left: 30%;
+  transform: rotate(30deg);
+}
+.mini-pizza .basil .leaf:nth-child(8) {
+  bottom: 50%;
+  right: 28%;
+  transform: rotate(20deg);
+}
+.mini-pizza .basil .leaf:nth-child(9) {
+  bottom: 30%;
+  right: 23%;
+  transform: rotate(-20deg);
+}
+.mini-pizza .basil .leaf:nth-child(10) {
+  bottom: 20%;
+  right: 38%;
+  transform: rotate(-20deg);
+}

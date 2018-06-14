@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400");
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #DAD7CD;
+}
+
+.canvas {
+  position: relative;
+  top: 5%;
+  margin: auto;
+  height: 350px;
+  width: 350px;
+  background: #DAD7CD;
+}
+
+/* SHADOW */
+.circle {
+  position: absolute;
+  bottom: -8%;
+  height: 13%;
+  width: 100%;
+  background: #C7C4BB;
+  border-radius: 50%;
+}
+
+/* EASEL */
+.easel .feet .left, .easel .feet .right {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 6%;
+  background: #C49C6D;
+  border-radius: 0.5em 0.5em 0.2em 0.2em;
+}
+
+.easel {
+  position: absolute;
+  top: 10%;
+  height: 100%;
+  width: 100%;
+}
+.easel .foot-center {
+  position: absolute;
+  top: 5%;
+  left: 47.5%;
+  height: 85%;
+  width: 6%;
+  background: #C49C6D;
+  border-radius: 0.5em 0.5em 0.2em 0.2em;
+  z-index: 0;
+}
+.easel .easel-canvas {
+  position: absolute;
+  left: 22.5%;
+  bottom: 30%;
+  height: 55%;
+  width: 55%;
+  background: #fff;
+  border-radius: 0.5em;
+  z-index: 2;
+}
+.easel .easel-canvas .succulent {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  height: 70%;
+  width: 70%;
+}
+.easel .easel-canvas .succulent .plant {
+  position: absolute;
+  left: 30%;
+  top: 35%;
+  height: 27%;
+  width: 40%;
+  background: #87B7A2;
+  border-radius: 2em 2em 0 0;
+  z-index: 1;
+}
+.easel .easel-canvas .succulent .plant .left {
+  position: absolute;
+  top: -30%;
+  left: -15%;
+  height: 80%;
+  width: 60%;
+  background: #87B7A2;
+  border-top: 2px solid #82AF9C;
+  border-left: 2px solid #82AF9C;
+  border-right: 2px solid transparent;
+  border-radius: 50% 45% 45% 50%;
+  transform: rotate(45deg);
+}
+.easel .easel-canvas .succulent .plant .left .top {
+  position: absolute;
+  top: -35%;
+  height: 40%;
+  width: 60%;
+  background: #87B7A2;
+  border: 2px solid #82AF9C;
+  border-radius: 50% 45%;
+  transform: rotate(-90deg);
+}
+.easel .easel-canvas .succulent .plant .right {
+  position: absolute;
+  top: -30%;
+  right: -50%;
+  height: 80%;
+  width: 100%;
+  background: #87B7A2;
+  border-top: 1px solid #82AF9C;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #82AF9C;
+  border-bottom: 2px solid #82AF9C;
+  border-radius: 50% 45% 45% 50%;
+  transform: rotate(-45deg);
+}
+.easel .easel-canvas .succulent .plant .right .top {
+  position: absolute;
+  top: -40%;
+  right: 0;
+  height: 40%;
+  width: 40%;
+  background: #87B7A2;
+  border: 1px solid #82AF9C;
+  border-radius: 50% 45%;
+  transform: rotate(130deg);
+}
+.easel .easel-canvas .succulent .edge {
+  position: absolute;
+  bottom: 34%;
+  left: 20%;
+  height: 7%;
+  width: 60%;
+  background: #F49649;
+  border-bottom: 1px solid #DE8943;
+  border-radius: 0.2em;
+  z-index: 3;
+}
+.easel .easel-canvas .succulent .pot {
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  height: 30%;
+  width: 50%;
+  background: #F49649;
+  -webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  z-index: 2;
+}
+.easel .easel-canvas .succulent .under {
+  position: absolute;
+  bottom: 10%;
+  left: 27.5%;
+  height: 3%;
+  width: 45%;
+  background: #F49649;
+  border-top: 1px solid #DE8943;
+  border-radius: 0.5em;
+  z-index: 2;
+}
+.easel .support {
+  position: absolute;
+  left: 20%;
+  bottom: 30%;
+  height: 5%;
+  width: 60%;
+  background: #B38E64;
+  border-radius: 0.5em 0.5em 0.2em 0.2em;
+  z-index: 3;
+}
+.easel .feet {
+  position: absolute;
+  bottom: 0;
+  height: 35%;
+  width: 100%;
+  z-index: 0;
+}
+.easel .feet .left {
+  left: 25%;
+  transform: rotate(30deg);
+}
+.easel .feet .right {
+  right: 25%;
+  transform: rotate(-30deg);
+}
+
+.date {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 2em;
+  color: #82AF9C;
+}

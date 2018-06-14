@@ -1,0 +1,276 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #3C8BD1;
+}
+
+.canvas {
+  position: relative;
+  top: 20%;
+  margin: auto;
+  height: 300px;
+  width: 350px;
+  background: #3C8BD1;
+}
+
+/*================    H E A D    ================ */
+.head, .head-copy {
+  position: absolute;
+  background: #46A3F4;
+}
+
+.head {
+  top: 10%;
+  left: 25%;
+  height: 66.6%;
+  width: 54.3%;
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 15px 5px #3479B5;
+}
+
+.head-copy {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  z-index: 2;
+  border-left: 13px solid #3C8BD1;
+  border-right: 13px solid #3C8BD1;
+}
+
+/*================    E Y E S    ================ */
+.eyes .left, .eyes .right {
+  position: absolute;
+  top: 15%;
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  z-index: 3;
+  background: #fff;
+  border-top: 1px solid #46A3F4;
+}
+
+.eyes .left .iris, .eyes .right .iris {
+  position: absolute;
+  top: 8%;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  background: #E85DBA;
+  z-index: 4;
+}
+
+.eyes .left .iris .pupil, .eyes .right .iris .pupil {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  width: 80%;
+  border-radius: 50%;
+  background: #373737;
+}
+
+.eyes .left .iris .pupil .light, .eyes .right .iris .pupil .light {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  background: #fff;
+  z-index: 4;
+}
+
+.eyes .left {
+  left: -5%;
+  border-left: 5px solid #46A3F4;
+  border-right: 5px solid #3C8BD1;
+  border-bottom: 2px solid #3C8BD1;
+}
+.eyes .left .iris {
+  right: 0;
+}
+.eyes .left .iris .pupil {
+  right: 0;
+}
+.eyes .right {
+  right: -5%;
+  border-right: 5px solid #46A3F4;
+  border-left: 5px solid #3C8BD1;
+  border-bottom: 2px solid #3C8BD1;
+}
+.eyes .right .iris {
+  left: 0;
+}
+.eyes .right .iris .pupil {
+  left: 0;
+}
+
+/*================    F R E C K L E S    ================ */
+.F1, .F2, .F3, .F4, .F5, .F6 {
+  position: absolute;
+  border-radius: 50%;
+  background: #3C8BD1;
+  z-index: 4;
+}
+
+.freckles {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  height: 20%;
+  width: 40%;
+  z-index: 3;
+}
+
+.F1 {
+  top: 0;
+  left: 50%;
+  height: 5px;
+  width: 5px;
+}
+
+.F2 {
+  top: 26%;
+  left: 35%;
+  height: 4px;
+  width: 4px;
+}
+
+.F3 {
+  top: 22%;
+  left: 50%;
+  height: 3px;
+  width: 3px;
+}
+
+.F4 {
+  top: 30%;
+  left: 58%;
+  height: 3px;
+  width: 3px;
+}
+
+.F5 {
+  top: 40%;
+  left: 43%;
+  height: 4px;
+  width: 4px;
+}
+
+.F6 {
+  top: 54%;
+  left: 55%;
+  height: 3px;
+  width: 3px;
+}
+
+/*================    M O U T H    ================ */
+.mouth {
+  position: absolute;
+  left: 35%;
+  bottom: 20%;
+  z-index: 3;
+  height: 10%;
+  width: 30%;
+  background: #373737;
+  border-radius: 10% 10% 50% 50%;
+}
+
+.teeth {
+  position: relative;
+  margin: auto;
+  height: 4px;
+  width: 40%;
+  background: #fff;
+  border-radius: 0 0 20% 20%;
+}
+
+.tongue {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  height: 6px;
+  width: 50%;
+  background: #E3663B;
+  border-radius: 50% 50% 30% 30%;
+}
+
+/*================    F I N S    ================ */
+.fins-top .top, .fins-top .under, .big-fin {
+  position: absolute;
+  height: 0;
+  width: 0;
+  z-index: 1;
+}
+
+.fins-top .top {
+  top: -5%;
+  left: 39%;
+  background: #373737;
+  height: 40px;
+  width: 40px;
+  border-radius: 10%;
+  transform: rotate(45deg);
+}
+.fins-top .under {
+  top: -9%;
+  left: 42.5%;
+  border-bottom: 30px solid #46A3F4;
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+}
+
+.big-fin {
+  top: -10%;
+  left: -15%;
+  height: 100px;
+  width: 100px;
+  background: #373737;
+  border-radius: 30% 30% 20% 20%;
+  border-left: 10px solid #3C8BD1;
+  border-right: 10px solid #3C8BD1;
+  border-top: 50px solid #F7E633;
+  transform: rotate(-60deg);
+}
+
+.big-fin-copy {
+  position: absolute;
+  top: -40%;
+  height: 100%;
+  width: 100%;
+  border-radius: 60% 60% 0 0;
+  background: #373737;
+}
+
+.fins-sides .left, .fins-sides .right {
+  position: absolute;
+  bottom: 10%;
+  height: 30px;
+  width: 80px;
+  background: #46A3F4;
+  box-shadow: -5px 5px 10px #3479B5;
+}
+
+.fins-sides {
+  z-index: 1;
+}
+.fins-sides .left {
+  left: -26%;
+  background: #373737;
+  border-right: 20px solid #46A3F4;
+  border-left: 30px solid #F7E633;
+  border-radius: 20% 40% 20% 80%;
+  transform: rotate(-10deg) rotateY(40deg);
+}
+.fins-sides .right {
+  right: -26%;
+  background: #373737;
+  border-left: 20px solid #46A3F4;
+  border-right: 30px solid #F7E633;
+  border-radius: 40% 10% 80% 20%;
+  transform: rotate(10deg) rotateY(-40deg);
+}

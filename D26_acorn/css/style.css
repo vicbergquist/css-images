@@ -1,0 +1,143 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FFFDDE;
+}
+
+.canvas {
+  position: relative;
+  top: 10%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+
+.hat {
+  position: absolute;
+  top: 15%;
+  left: calc((100% - 65%)/2);
+  height: 30%;
+  width: 65%;
+  background: #6D4624;
+  background-image: linear-gradient(135deg, transparent 20px, #633F20 20px, #633F20 25px, transparent 25px, transparent 40px, #633F20 40px, #633F20 45px, transparent 45px, transparent 65px, #633F20 65px, #633F20 70px, transparent 70px, transparent 90px, #633F20 90px, #633F20 95px, transparent 95px, transparent 115px, #633F20 115px, #633F20 120px, transparent 120px, transparent 140px, #633F20 140px, #633F20 145px, transparent 145px, transparent 165px, #633F20 165px, #633F20 170px, transparent 170px), linear-gradient(45deg, transparent 20px, #633F20 20px, #633F20 25px, transparent 25px, transparent 40px, #633F20 40px, #633F20 45px, transparent 45px, transparent 65px, #633F20 65px, #633F20 70px, transparent 70px, transparent 90px, #633F20 90px, #633F20 95px, transparent 95px, transparent 115px, #633F20 115px, #633F20 120px, transparent 120px, transparent 140px, #633F20 140px, #633F20 145px, transparent 145px, transparent 165px, #633F20 165px, #633F20 170px, transparent 170px);
+  border-radius: 50% 50% 20% 20%;
+  z-index: 1;
+}
+.hat::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -20px;
+  left: calc((100% - 20px)/2);
+  height: 30px;
+  width: 15px;
+  background: #6D4624;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-clip-path: polygon(0 0, 100% 0, 30% 100%);
+}
+
+.acorn {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  height: 40%;
+  width: 60%;
+  background: #BF7B40;
+  border-radius: 0 0 50% 50%/100%;
+  z-index: 2;
+}
+.acorn::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -15%;
+  height: 32%;
+  width: 100%;
+  background: #BF7B40;
+  border-radius: 50%/50%;
+}
+.acorn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -8px;
+  left: calc((100% - 20px)/2);
+  border-top: 10px solid #BF7B40;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.eyes::before, .eyes::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 45%;
+  height: 30px;
+  width: 20px;
+  background: #333;
+  border-radius: 50%;
+  z-index: 4;
+}
+
+.eyes .inner::before, .eyes .inner::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 46%;
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 5;
+}
+
+.eyes::before {
+  left: 33%;
+}
+.eyes::after {
+  right: 33%;
+}
+.eyes .inner::before {
+  left: 36%;
+}
+.eyes .inner::after {
+  right: 34%;
+}
+
+.cheeks::before, .cheeks:after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 5px;
+  height: 15px;
+  width: 15px;
+  background: #FFBABA;
+  border-radius: 50%;
+}
+
+.cheeks {
+  position: absolute;
+  top: 55%;
+  left: calc((100% - 30px)/2);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-bottom: 3px solid #333;
+  z-index: 4;
+}
+.cheeks::before {
+  left: -45px;
+}
+.cheeks:after {
+  right: -45px;
+}

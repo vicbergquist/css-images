@@ -1,0 +1,121 @@
+/* COLORS */
+$bg: #B2BF9E
+$black: #3F3F3F
+$face: #F3D29C
+$body: #89543D
+$pink: #E0B8B8
+
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+	
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	@include size(300px,300px)
+	
+/* BODY */
+
+.body
+	position: absolute
+	top: 20%
+	right: 10%
+	@include size(20%,45%)
+	background: $body
+	&::before
+		@include pseudo
+		@include size(20px,100%)
+		top: -20px
+		background-image: radial-gradient(circle at 100% 100%, $body 70%, transparent 70%)
+		background-size: 20px 20px
+		background-repeat: repeat-x
+	&::after
+		@include pseudo
+		@include size(100%,20px)
+		right: -20px
+		background-image: radial-gradient(circle at 0% 100%, $body 70%, transparent 70%)
+		background-size: 20px 20px
+		background-repeat: repeat-y
+
+/* HEAD */
+
+.head
+	position: absolute
+	bottom: -15%
+	left: -35%
+	@include size(100%,60%)
+	background: $face
+	-webkit-clip-path: polygon(60% 0, 15% 85%, 100% 85%)
+	border-radius: 0 0 0 70%
+	&::before
+		@include pseudo
+		top: -27px
+		left: -42px
+		@include size(80px,90px)
+		background: $bg
+		border-radius: 0 0 70% 0
+
+/* FACE */
+.face
+	position: absolute
+	top: 60%
+	@include size(8px,8px)
+	background: $black
+	border-radius: 50%
+	&::before
+		@include pseudo
+		top: -15px
+		right: -30px
+		@include size(15px,12px)
+		background: $face
+		border-radius: 20% 50% 50% 20%
+		@include cross(transform, rotate(-30deg))
+	&::after
+		@include pseudo
+		top: 10px
+		left: -35px
+		@include size(9px,9px)
+		background: $black
+		border-radius: 50%
+	
+/* FEET */
+.feet
+	position: absolute
+	bottom: -20%
+	left: 25%
+	@include size(20%,70%)
+	background-image: radial-gradient(circle at 50% 10%, $face 30%, transparent 30%)
+	background-size: 25px 25px
+	&::before
+		@include pseudo
+		top: -15px
+		left: -30px
+		@include size(5px,10px)
+		background: $pink
+		border-radius: 50%
+	
+	
+	
+	

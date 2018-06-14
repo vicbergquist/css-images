@@ -1,0 +1,25 @@
+/* COLORS */
+$bg: #FFE2EF
+$black : #333
+$red: #FF3D32
+
+/* MIXINS */
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.pokeball
+	position: absolute
+	top: 23%
+	left: calc((100% - 19px)/2)
+	@include size(5px,5px)
+	background: $black
+	box-shadow: /* Line 1 */5px 0 $black, 10px 0px $black, 15px 0 $black,/* Line 2*/-10px 5px $black, -5px 5px $black, 0px 5px $red, 5px 5px $red, 10px 5px $red, 15px 5px $red, 20px 5px $black, 25px 5px $black,/* Line 3 */-15px 10px $black, -10px 10px $red, -5px 10px $red, 0px 10px $red, 5px 10px $red, 10px 10px $red, 15px 10px $red, 20px 10px $red, 25px 10px $red, 30px 10px $black,/* Line 4 */-15px 15px $black, -10px 15px $red, -5px 15px $red, 0px 15px $red, 5px 15px $red, 10px 15px $red, 15px 15px $red, 20px 15px $red, 25px 15px $red, 30px 15px $black,/* Line 5 */-20px 20px $black, -15px 20px $red, -10px 20px $red, -5px 20px $red, 0px 20px $red, 5px 20px $red, 10px 20px $red, 15px 20px $red, 20px 20px $red, 25px 20px $red, 30px 20px $red, 35px 20px $black,/* Line 6 */-20px 25px $black, -15px 25px $red, -10px 25px $red, -5px 25px $red, 0px 25px $red, 5px 25px $black, 10px 25px $black, 15px 25px $red, 20px 25px $red, 25px 25px $red, 30px 25px $red, 35px 25px $black,/* Line 7 */-20px 30px $black, -15px 30px $black, -10px 30px $red, -5px 30px $red, 0px 30px $black, 5px 30px #fff, 10px 30px #fff, 15px 30px $black, 20px 30px $red, 25px 30px $red, 30px 30px $black, 35px 30px $black,/* Line 8 */-20px 35px $black, -15px 35px #fff, -10px 35px $black, -5px 35px $black, 0px 35px $black, 5px 35px #fff, 10px 35px #fff, 15px 35px $black, 20px 35px $black, 25px 35px $black, 30px 35px #fff, 35px 35px $black,/* Line 9 */ -15px 40px $black, -10px 40px #fff, -5px 40px #fff, 0px 40px #fff, 5px 40px $black, 10px 40px $black, 15px 40px #fff, 20px 40px #fff, 25px 40px #fff, 30px 40px $black,/* Line 10 */ -15px 45px $black, -10px 45px #fff, -5px 45px #fff, 0px 45px #fff, 5px 45px #fff, 10px 45px #fff, 15px 45px #fff, 20px 45px #fff, 25px 45px #fff, 30px 45px $black,/* Line 11 */-10px 50px $black, -5px 50px $black, 0px 50px #fff, 5px 50px #fff, 10px 50px #fff, 15px 50px #fff, 20px 50px $black, 25px 50px $black,/* Line 12 */0px 55px $black, 5px 55px $black, 10px 55px $black, 15px 55px $black
+	

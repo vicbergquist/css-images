@@ -1,0 +1,191 @@
+/* COLORS */
+$bg: #27605F
+$black: #515151
+$fill: #FBD5BA
+$crust: #D6986D
+$border: #C98D62
+$berries: #F27B87
+$edge: #F4CCB0
+
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: $content
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 10%
+	margin: auto
+	height: 350px
+	width: 350px
+	background: $bg
+
+%drops
+	position: absolute
+	background: $crust
+	border-radius: 80% 0 55% 50% / 55% 0 80% 50%
+
+.drops
+	@extend %drops
+	top: 34%
+	left: 48.5%
+	height: 2%
+	width: 2%
+	z-index: 5
+	transform: rotate(-45deg)
+	transform: rotateX(-55deg)rotateZ(-45deg)
+
+	&::before
+		@include pseudo
+		@extend %drops
+		top: -150%
+		height: 100%
+		width: 100%
+		left: -130%
+		transform: rotate(45deg)
+	
+	&:after
+		@include pseudo
+		@extend %drops
+		top: 130%
+		height: 100%	
+		width: 100%
+		right: -150%
+		transform: rotate(-45deg)
+%eye
+	position: absolute
+	top: 43%
+	height: 15%
+	width: 8%
+	border-radius: 50%
+	z-index: 5
+	border-top: 3px solid $black
+	border-bottom: 3px solid transparent
+	border-left: 3px solid transparent
+	border-right: 3px solid transparent
+	
+.eyes
+	.left
+		@extend %eye
+		left: 41.5%
+	.right
+		@extend %eye
+		right: 41.5%
+	
+%cheeks
+	position: absolute
+	top: 45%
+	height: 2%
+	width: 4%
+	background: $berries
+	border-radius: 50%
+	z-index: 5
+
+.cheeks	
+	.left
+		@extend %cheeks
+		left: 35%
+	.right
+		@extend %cheeks
+		right: 35%
+	
+.mouth
+	position: absolute
+	top: 48%
+	left: 43%
+	border-bottom: 3px solid $black
+	border-right: 3px solid transparent
+	border-left: 3px solid transparent
+	height: 20px
+	width: 25px
+	z-index: 5
+	border-radius: 50%
+	transform: rotate(10deg)
+
+
+.fill
+	position: absolute
+	top: 33%
+	left: 20%
+	width: 60%
+	height: 13%
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0
+	background: $fill
+	z-index: 4
+		
+%crust
+	position: absolute
+	background: $fill
+	border-radius: 50% 30% 50% 50%
+	border-bottom: 2px solid $border
+
+.crust
+	position: absolute
+	top: 44%
+	left: 15%
+	height: 10%
+	width: 70%
+	z-index: 3
+
+	.crusty:nth-child(1)
+		@extend %crust
+		height: 60%
+		width: 20%
+	
+	.crusty:nth-child(2)
+		@extend %crust
+		top: 10%
+		left: 15%
+		height: 60%
+		width: 22%
+		border-top: 13px solid transparent
+	
+	.crusty:nth-child(3)
+		@extend %crust
+		top: 10%
+		left: 35%
+		height: 60%
+		width: 20%
+		border-top: 13px solid transparent
+	
+	.crusty:nth-child(4)
+		@extend %crust
+		top: 15%
+		right: 18%
+		height: 50%
+		width: 15%
+		border-top: 10px solid transparent
+		
+	
+	.crusty:nth-child(5)
+		@extend %crust
+		right: 30%
+		height: 70%
+		width: 18%
+		border-top: 17px solid transparent
+	
+	.crusty:nth-child(6)
+		@extend %crust
+		right: 0
+		height: 60%
+		width: 20%
+		border-radius: 50%
+		border-top: 13px solid transparent
+
+.bottom
+	position: absolute
+	top: 43%
+	left: 22.5%
+	height: 13%
+	width: 55%
+	background: $crust
+	border-radius: 0 0 2em 2em
+	z-index: 1

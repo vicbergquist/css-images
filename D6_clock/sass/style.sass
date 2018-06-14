@@ -1,0 +1,107 @@
+// COLORS
+$bg: #F7EDF0
+$pink: #F4AFAB
+$darkpink: #E5A4A0
+$black: #121113
+$paleyellow: #F4EEA9
+$yellow: #F4F482
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 20%
+	margin: auto
+	height: 300px
+	width: 300px
+	background: $bg
+
+.clock
+	position: absolute
+	top: 10%
+	left: 25%
+	height: 50%
+	width: 50%
+	background: #fff
+	border: 8px solid $darkpink
+	border-radius: 50%
+	z-index: 3
+
+	%arms
+		position: absolute
+		bottom: 6px
+		left: 25%
+		display: block
+		content: ''
+		border-radius: 5px
+		background: $pink
+		transform-origin: 50% 100%
+
+	.arms
+		position: absolute
+		top: 45%
+		left: 45%
+		height: 10%
+		width: 10%
+		background: $pink
+		border-radius: 50%
+
+	.arms::before
+		@extend %arms
+		height: 50px
+		width: 6px
+		animation: rotate 30s infinite linear
+
+	.arms::after
+		@extend %arms
+		height: 30px
+		width: 6px	
+		animation: rotate 180s infinite linear
+
+%bells
+	position: absolute
+	top: 8%
+	height: 20%
+	width: 20%
+	background: #fff
+	background: $darkpink
+	border-radius: 50%
+	z-index: 2
+
+.bells
+	.left
+		@extend %bells
+		left: 25%
+		
+	.right
+		@extend %bells
+		right: 25%
+	
+%legs
+	position: absolute
+	bottom: 35%
+	height: 20%
+	width: 5%
+	background: $darkpink
+	border-radius: 10px
+	
+.legs
+	.left
+		@extend %legs
+		left: 35%
+		transform: rotate(20deg)
+	.right
+		@extend %legs
+		right: 35%
+		transform: rotate(-20deg)
+	
+@keyframes rotate
+	to
+		transform: rotate(360deg)
+

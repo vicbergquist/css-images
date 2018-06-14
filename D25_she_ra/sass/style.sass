@@ -1,0 +1,264 @@
+/* COLORS */
+$bg: #5B3763
+$black: #444
+$gold: #EA9C00
+$d-gold: #CC8800
+$ruby: #D43334
+$hair: #FFE95B
+$d-hair: #F4DE4E
+$skin: #FFD29D
+$outline: #F2C591
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.canvas
+	position: relative
+	@include size(300px, 300px)
+	top: 10%
+	margin: auto
+	
+/* HEAD PIECE */
+
+%w2
+	@include pseudo
+	top: 12%
+	left: calc((100% - 43%)/2)
+	@include size(39%,43%)
+	border-radius: 50%
+	z-index: 4
+%w3
+	@include pseudo
+	top: 11%
+	left: calc((100% - 41%)/2)
+	@include size(38%,41%)
+	border-radius: 50%
+	z-index: 3
+	
+.wings
+	.w1
+		position: absolute
+		top: 10%
+		left: calc((100% - 30%)/2)
+		@include size(45%,30%)
+		border-radius: 50%
+		box-shadow: 15px 2px 0 0 $gold, -15px 2px 0 0 $gold, 17px 2px 0 0 $d-gold, -17px 2px 0 0 $d-gold
+		z-index: 5	
+		//&::before
+			@include pseudo
+			top: 40px
+			left: -10px
+			@include size(40px,35px)
+			background: $gold
+			border-radius: 50% 0 0 0
+	
+	.w2
+		&::before
+			@extend %w2
+			box-shadow: 12px 3px 0 0 $gold, -12px 3px 0 0 $gold, 15px 3px 0 0 $d-gold, -15px 3px 0 0 $d-gold	
+		&::after
+			@extend %w2
+			box-shadow: 12px 3px 0 0 $gold, -12px 3px 0 0 $gold, 15px 3px 0 0 $d-gold, -15px 3px 0 0 $d-gold	
+	
+	.w3
+		&::before
+			@extend %w3
+			box-shadow: 30px 7px 0 0 $gold, 32px 7px 0 0 $d-gold
+			@include cross(transform, rotate(20deg))
+		&::after
+			@extend %w3
+			box-shadow: -30px 7px 0 0 $gold, -32px 7px 0 0 $d-gold
+			@include cross(transform, rotate(-20deg))
+		
+	
+%sides
+	position: absolute
+	top: 34%
+	@include size(65px, 20px)
+	background: $gold
+	z-index: 7
+
+%bottoms
+	@include pseudo
+	bottom: -5%
+	@include size(20px,13px)
+	background: $gold
+	border: 1px solid $d-gold
+	border-radius: 50%
+
+.sides
+	.left
+		@extend %sides
+		left: 31%
+		border-left: 2px solid $d-gold
+		border-radius: 50% 50% 20% 80%
+		@include cross(transform, rotate(-15deg))
+		&::before
+			@extend %bottoms
+			left: 4px
+		
+	.right
+		@extend %sides
+		right: 31%
+		border-right: 2px solid $d-gold
+		border-radius: 80% 50% 80% 20%
+		@include cross(transform, rotate(15deg))
+		&::before
+			@extend %bottoms
+			right: 4px
+		
+/* HEADBAND */
+.headband
+	position: absolute
+	top: 20%
+	left: 30%
+	@include size(20%,40%)
+	background: $gold
+	border-radius: 50% 50% 0 0 / 78% 78% 0 0
+	z-index: 4
+	&::before
+		@include pseudo
+		top: 6px
+		left: calc((100% - 14px)/2)
+		@include size(18px,14px)
+		background: $ruby
+		border-radius: 50%
+	
+/* HAIR */
+%strands
+	@include pseudo
+	@include size(100%,100%)
+	background: $hair
+	border-radius: 90% 10%
+
+.hair
+	.top
+		position: absolute
+		top: 16%
+		left: 35%
+		@include size(20%,30%)
+		background: $hair
+		border-radius: 50% 50% 0 0
+		&::before
+			@include pseudo
+			top: -1px
+			@include size(60px,60px)
+			background: $hair
+			border-radius: 50%
+		&::after
+			@include pseudo
+			top: -1px
+			right: 0
+			@include size(60px,60px)
+			background: $hair
+			border-radius: 50%
+	
+	.bottom
+		position: absolute
+		top: 18%
+		left: 15%
+		@include size(200px,200px)
+		border-radius: 50%
+		background: $hair
+		.s1
+			position: absolute
+			bottom: -80px
+			right: 0
+			@include size(150px,150px)
+			border-radius: 50%
+			background: $hair
+			&::before
+				@include pseudo
+				top: -85px
+				left: -30px
+				@include size(200px,200px)
+				border-radius: 50%
+				background: $hair
+			&::after
+				@include pseudo
+				top: -60px
+				left: -90px
+				@include size(180px,180px)
+				border-radius: 50%
+				background: $hair
+			
+/* FACE */
+%forehead
+	@include pseudo
+	top: 14%
+	@include size(55%, 60%)
+	background: $skin
+	border-radius: 50% 50% 0 0/ 60% 60% 0 0
+
+.head
+	position: absolute
+	@include size(40%,30%)
+	top: 23%
+	left: calc((100% - 30%)/2)
+	z-index: 6
+	&::before
+		@include pseudo
+		bottom: 7px
+		left: -2px
+		@include size(80px,100%)
+		background: $skin
+		@include cross(transform, rotate(45deg))
+		border-radius: 50% 50% 30% 50%
+		border: 2px solid $outline
+	.top
+		&::before
+			@extend %forehead
+		&::after
+			@extend %forehead
+			right: 0
+
+/* EYES */
+%eyes
+	position: absolute
+	@include size(13px,20px)
+	background: #fff
+	border-radius: 20% 80% 30% 30%
+	z-index: 10
+%inner
+	position: absolute
+	top: 1px
+	@include size(10px,10px)
+	background: $black
+	border-radius: 50%
+	
+/* NECK */	
+.neck
+	position: absolute
+	bottom: 29%
+	left: calc((100% - 47px)/2)
+	@include size(45px,51px)
+	background: linear-gradient(to bottom, $skin 57%, $gold 57%, $gold 74%, $skin 74%, $skin 100%)
+	z-index: 0
+	&::before
+		@include pseudo
+		top: 41px
+		left: -50px
+		@include size(40px,150px)
+		background: $skin
+		border-radius: 10% 10% 50% 50%

@@ -1,0 +1,119 @@
+/* COLORS */
+$bg: #FF7F7F
+$black: #2c2e2d
+$grey: #c6c6c6
+$silver: #e0e2e2
+$blue: #91C2FF
+$l-blue: #9EC9FF
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.imac
+	position: relative
+	top: 10%
+	margin: auto
+	@include size(350px,350px)
+
+.screen
+	position: absolute
+	top: 10%
+	left: calc((100% - 95%)/2)
+	@include size(52%,95%)
+	background: linear-gradient(45deg, $blue 75%, $l-blue 75%)
+	border: 13px solid $black
+	border-radius: 10px 10px 0 0
+	z-index: 2
+	&::before
+		@include pseudo
+		top: -8px
+		left: calc((100% - 3px)/2)
+		@include size(3px,3px)
+		border-radius: 50%
+		background: $grey
+		opacity: 0.3
+	&:after
+		@include pseudo
+		bottom: -47px
+		left: -13px
+		@include size(8px,100%)
+		background: $silver
+		border: 13px solid $silver
+		border-radius: 0 0 10px 10px
+	
+.foot
+	position: absolute
+	bottom: 17%
+	left: calc((100% - 21%)/2)
+	@include size(12%,21%)
+	background: linear-gradient(10deg, $silver 75%, $grey 75%)
+	z-index: 1
+	-webkit-clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)
+
+.bottom
+	position: absolute
+	bottom: 16%
+	left: calc((100% - 25%)/2)
+	@include size(8px,25%)
+	background: $grey
+	border-radius: 2px 2px 0 0
+	z-index: 3
+
+%heart
+	@include pseudo
+	@include size(15px,9px)
+	border-radius: 25px 25px 0 0
+	background: $black
+
+.heart
+	position: absolute
+	bottom: -38%
+	left: calc((100% - 25%)/2)
+	@include size(25%,25%)
+	z-index: 4
+	&::before
+		@extend %heart
+		left: 41%
+		@include cross(transform, rotate(-45deg))
+	&::after
+		@extend %heart
+		right: 41%
+		@include cross(transform, rotate(45deg))
+
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: #fff
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		width: 30%
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

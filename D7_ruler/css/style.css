@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #698996;
+}
+
+.canvas {
+  position: relative;
+  margin: auto;
+  top: 10%;
+  height: 300px;
+  width: 300px;
+  background: #698996;
+}
+
+.triangle {
+  position: absolute;
+  top: 5%;
+  left: -10%;
+  border-bottom: 300px solid #EBBAB9;
+  border-right: 300px solid transparent;
+}
+
+.triangle::before {
+  position: absolute;
+  top: 142px;
+  left: 60px;
+  content: "";
+  border-bottom: 90px solid #698996;
+  border-right: 90px solid transparent;
+}
+
+.triangle ul, .triangle-small ul {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.triangle-small {
+  position: absolute;
+  top: 15%;
+  right: -10%;
+  border-bottom: 300px solid #E0C270;
+  border-right: 300px solid transparent;
+  transform: scale(-1);
+}
+.triangle-small::before {
+  position: absolute;
+  top: 142px;
+  left: 60px;
+  content: "";
+  border-bottom: 90px solid #698996;
+  border-right: 90px solid transparent;
+}
+
+.triangle ul li, .triangle-small ul li {
+  width: 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid #fff;
+}
+.triangle ul li:nth-child(1), .triangle-small ul li:nth-child(1) {
+  margin-top: 30px;
+}
+.triangle ul li:nth-child(5n), .triangle-small ul li:nth-child(5n) {
+  width: 16px;
+}
+.triangle .bottom, .triangle-small .bottom {
+  transform: rotate(-90deg);
+  margin-top: 154px;
+  margin-left: 125px;
+}

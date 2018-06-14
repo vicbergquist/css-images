@@ -1,0 +1,213 @@
+/* COLORS */
+$bg: #B2BF9E
+$black: #3F3F3F
+$face: #F3D29C
+$d-face: #E2C391
+$body: #89543D
+$d-body: #7F4933
+$pink: #E0B8B8
+$grey: #707070
+
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+	
+.canvas
+	position: relative
+	top: 20%
+	margin: auto
+	@include size(300px,300px)
+	
+	
+/* HEAD & BODY */
+	
+.body
+	position: absolute
+	top: 12%
+	left: 30%
+	@include size(47%,40%)
+	background: $face
+	border-radius: 50%
+	//box-shadow: 0 -5px 0 $face
+	z-index: 2
+	border: 5px solid $d-face
+	box-shadow: 5px 0 0 $d-body, -5px 0 0 $d-body, 0 5px 0 $d-body, 0 -5px 0 $d-body
+	
+.pigger	
+	position: absolute
+	top: -2%
+	left: 15%
+	@include size(72%,70%)
+	background: $d-body
+	background-image: linear-gradient(45deg, transparent 50%, $body 50%), linear-gradient(-45deg, transparent 50%, $body 50%)
+	background-size: 15px
+	border-radius: 50%
+	border: 3px solid $d-body
+	box-shadow: 0 3px 0 $grey
+
+.face
+	position: absolute
+	top: 10%
+	left: 25%
+	@include size(50%,50%)
+	z-index: 3
+	
+/* EYES & NOSE */
+%eyes
+	position: absolute
+	top: -10px
+	@include size(10px,10px)
+	background: $black
+	border-radius: 50%
+
+%inner-eye
+	position: absolute
+	top: 2px
+	@include size(3px,3px)
+	background: #fff
+	border-radius: 50%
+
+.eyes
+	position: absolute
+	top: 30%
+	left: calc((100% - 13px)/2)
+	@include size(10px,13px)
+	background: $black
+	border-radius: 50%
+	.left
+		@extend %eyes
+		left: -12px
+	.right
+		@extend %eyes
+		right: -12px
+	.inner-eye
+		@extend %inner-eye
+		left: 1px
+
+/* CHEEKS & MOUTH */
+%cheeks
+	@include pseudo
+	top: 15%
+	@include size(8px,10px)
+	background: $pink
+	border-radius: 50%
+	z-index: 3
+.cheeks
+	position: absolute
+	top: 25%
+	left: calc((100% - 32px)/2)
+	@include size(22px,32px)
+	background: tint($face, 30%)
+	border-radius: 50%
+	z-index: 3
+	&::before
+		@extend %cheeks
+		left: -15px
+	&::after
+		@extend %cheeks
+		right: -15px
+	
+/* EARS */
+%ears
+	@include pseudo
+	top: -2px
+	@include size(15px,20px)
+	background: $pink
+	border-radius: 50% 50% 40% 40%
+	border: 5px solid $face
+	z-index: 0
+.ears
+	z-index: 0
+	&::before
+		@extend %ears
+		left: 15px
+		@include cross(transform, rotate(-40deg))
+	&::after
+		@extend %ears
+		right: 15px
+		@include cross(transform, rotate(40deg))
+	
+/* HANDS & FEET */	
+
+%hands
+	@include pseudo
+	top: 35%
+	@include size(4%,8%)
+	background: $face
+	border: 2px solid $d-face
+	z-index: 5
+
+%feet
+	@include pseudo
+	bottom: 50%
+	@include size(5%,6%)
+	background: $face
+	border: 2px solid $d-face
+	border-bottom: 0
+	border-radius: 50% 50% 30% 30%
+	transform-origin: bottom
+	z-index: 5
+
+.hands
+	&::before
+		@extend %hands
+		left: 40%
+		border-left: 0
+		border-radius: 30% 60% 60% 30%
+		@include cross(transform, rotate(-20deg))
+	&::after
+		@extend %hands
+		right: 40%
+		border-right: 0
+		border-radius: 60% 30% 30% 60%
+		@include cross(transform, rotate(20deg))
+.feet	
+	&::before
+		@extend %feet
+		left: 42%
+		@include cross(transform, rotate(10deg))
+	&::after
+		@extend %feet
+		right: 42%
+		@include cross(transform, rotate(-10deg))
+		
+a, a:hover, a:visited, a:focus
+	text-decoration: none
+	color: $black	
+
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: $black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em					

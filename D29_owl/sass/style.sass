@@ -1,0 +1,314 @@
+/* COLORS */
+$black: #444
+$brown: #725043
+$d-brown: #604338
+$d-grey: #A5998C
+$grey: #AFA193
+$l-grey: #DDD4CC
+$white: #FCF3EA
+$red: #AF442F
+$dark: #5F5449
+$orange: #C98226
+$d-orange: #AF7221
+$twig: #4F3931
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: $content
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $white
+	
+.owl
+	position: relative
+	top: 10%
+	margin: auto
+	@include size(300px, 300px)
+	
+%ears
+	@include pseudo
+	top: -8%
+	@include size(40px,30px)
+	background: $brown
+
+.ears	
+	&::before
+		@extend %ears
+		left: 10%
+		border-radius: 0 90% 0 0
+	&::after
+		@extend %ears
+		right: 10%
+		border-radius: 90% 0 0 0
+
+%hair
+	@include pseudo
+	border-bottom: 15px solid $brown
+	border-left: 10px solid transparent
+	border-right: 10px solid transparent
+
+.head
+	position: absolute
+	top: 20%
+	left: calc((100% - 45%)/2)
+	@include size(35%,45%)
+	background: $brown
+	border-radius: 50%
+	z-index: 2
+	&::before
+		@extend %hair
+		top: -10px
+		left: calc((100% - 20px)/2)
+	&::after
+		@extend %hair
+		top: -5px
+		left: 35%
+	
+%eyes-outer
+	@include pseudo
+	top: 16%
+	background: $grey
+	@include size(70px,70px)
+	border-radius: 50%
+
+%eyes
+	position: absolute
+	top: 20%
+	background: #fff
+	@include size(60px,60px)
+	border-radius: 50%
+	z-index: 3
+
+%inner-eye
+	@include pseudo
+	top: 10%
+	@include size(50px,50px)
+	background: $black
+	border-radius: 50%
+
+%light
+	@include pseudo
+	top: 18%
+	left: 18%
+	@include size(10px,10px)
+	background: #fff
+	border-radius: 50%
+
+.eyes
+	&::before
+		@extend %eyes-outer
+		left: 4%
+	&::after
+		@extend %eyes-outer
+		right: 4%
+	.left
+		@extend %eyes
+		left: 7%
+		&::before
+			@extend %inner-eye
+			left: 10%
+		&::after
+			@extend %light
+			
+	.right
+		@extend %eyes
+		right: 7%
+		&::before
+			@extend %inner-eye
+			right: 10%
+		&::after
+			@extend %light
+%side-fluff
+	@include pseudo
+	top: -5px
+	border-top: 8px solid transparent
+	border-bottom: 8px solid transparent
+	border-radius: 0
+
+.beak
+	position: absolute
+	bottom: 20%
+	left: calc((100% - 20px)/2)
+	background: $orange
+	@include size(25px,20px)
+	border-radius: 0 0 50% 50%/100%
+	z-index: 2
+	&::before
+		@extend %side-fluff
+		left: -63px
+		border-right: 10px solid $brown
+	&::after
+		@extend %side-fluff
+		right: -63px
+		border-left: 10px solid $brown
+	
+
+.body
+	position: absolute
+	bottom: 25%
+	left: calc((100% - 31%)/2)
+	@include size(25%,31%)
+	background: $brown
+	border-radius: 50% 50% 50% 50%/100% 100% 30% 30%
+	&::before
+		@include pseudo
+		top: 16px
+		left: calc((100% - 70px)/2)
+		@include size(60px,70px)
+		background: $grey
+		border-radius: 50% 50% 50% 50%/100% 100% 10% 10%
+
+%feet
+	position: absolute
+	bottom: -5%
+	@include size(12px,10px)
+	background: $orange
+	border-radius: 50%
+	z-index: 5
+
+%toes
+	@include pseudo
+	@extend %feet
+	bottom: 0
+
+.feet
+	.left
+		@extend %feet
+		left: 23%
+		@include cross(transform, rotate(10deg))
+		&::before
+			@extend %toes
+			left: -8px
+		&::after
+			@extend %toes
+			right: -8px
+	
+	.right
+		@extend %feet
+		right: 23%
+		@include cross(transform, rotate(-10deg))
+		&::before
+			@extend %toes
+			left: -8px
+		&::after
+			@extend %toes
+			right: -8px
+	
+%scarf
+	@include pseudo
+	background: $red
+
+.scarf
+	position: absolute
+	top: 5%
+	left: 9.5%
+	@include size(23%,82%)
+	background: $red
+	border-radius: 5px
+	z-index: 3
+	&::before
+		@extend %scarf
+		top: 7px
+		right: -20px
+		@include size(100%,30px)
+		@include cross(transform, rotate(35deg))
+		border-radius: 5px
+	
+%wings
+	position: absolute
+	top: 15%
+	@include size(60px,40px)
+	background: $d-brown
+	transform-origin: top
+	border-radius: 50%
+
+.wings
+	position: absolute
+	bottom: 27%
+	left: 25%
+	@include size(20%,50%)
+	
+	.left
+		@extend %wings
+		left: 28%
+		@include cross(transform, rotate(45deg))
+		
+	.right
+		@extend %wings
+		right: 28%
+		@include cross(transform, rotate(-45deg))
+
+%stomach
+	@include size(12px,15px)
+	border-radius: 50%
+	border-bottom: 3px solid $d-grey
+	border-top: 1px solid $grey
+	border-left: 1px solid $grey
+	border-right: 1px solid $grey
+.stomach-top
+	position: absolute
+	top: 25%
+	left: calc((100% - 17px)/2)
+	@extend %stomach
+	&::before
+		@include pseudo
+		top: 10px
+		left: -12px
+		@extend %stomach
+	&::after
+		@include pseudo
+		top: 10px
+		right: -12px
+		@extend %stomach
+.stomach-bottom
+	position: absolute
+	bottom: 20%
+	left: calc((100% - 15px)/2)
+	@extend %stomach
+	&::before
+		@include pseudo
+		@extend %stomach
+		top: -2px
+		left: -20px
+	&::after
+		@include pseudo
+		@extend %stomach
+		top: -2px
+		right: -20px
+	
+a, a:hover, a:visited, a:focus
+	text-decoration: none
+	color: $black	
+
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: $white
+	p
+		color: $black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em	

@@ -1,0 +1,243 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #B2BF9E;
+}
+
+.canvas {
+  position: relative;
+  top: 20%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+
+/* HEAD & BODY */
+.body {
+  position: absolute;
+  top: 12%;
+  left: 30%;
+  height: 47%;
+  width: 40%;
+  background: #F3D29C;
+  border-radius: 50%;
+  z-index: 2;
+  border: 5px solid #E2C391;
+  box-shadow: 5px 0 0 #7F4933, -5px 0 0 #7F4933, 0 5px 0 #7F4933, 0 -5px 0 #7F4933;
+}
+
+.pigger {
+  position: absolute;
+  top: -2%;
+  left: 15%;
+  height: 72%;
+  width: 70%;
+  background: #7F4933;
+  background-image: linear-gradient(45deg, transparent 50%, #89543D 50%), linear-gradient(-45deg, transparent 50%, #89543D 50%);
+  background-size: 15px;
+  border-radius: 50%;
+  border: 3px solid #7F4933;
+  box-shadow: 0 3px 0 #707070;
+}
+
+.face {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+  z-index: 3;
+}
+
+/* EYES & NOSE */
+.eyes .left, .eyes .right {
+  position: absolute;
+  top: -10px;
+  height: 10px;
+  width: 10px;
+  background: #3F3F3F;
+  border-radius: 50%;
+}
+
+.eyes .inner-eye {
+  position: absolute;
+  top: 2px;
+  height: 3px;
+  width: 3px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.eyes {
+  position: absolute;
+  top: 30%;
+  left: calc((100% - 13px)/2);
+  height: 10px;
+  width: 13px;
+  background: #3F3F3F;
+  border-radius: 50%;
+}
+.eyes .left {
+  left: -12px;
+}
+.eyes .right {
+  right: -12px;
+}
+.eyes .inner-eye {
+  left: 1px;
+}
+
+/* CHEEKS & MOUTH */
+.cheeks::before, .cheeks::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 15%;
+  height: 8px;
+  width: 10px;
+  background: #E0B8B8;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.cheeks {
+  position: absolute;
+  top: 25%;
+  left: calc((100% - 32px)/2);
+  height: 22px;
+  width: 32px;
+  background: tint(#F3D29C, 30%);
+  border-radius: 50%;
+  z-index: 3;
+}
+.cheeks::before {
+  left: -15px;
+}
+.cheeks::after {
+  right: -15px;
+}
+
+/* EARS */
+.ears::before, .ears::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -2px;
+  height: 15px;
+  width: 20px;
+  background: #E0B8B8;
+  border-radius: 50% 50% 40% 40%;
+  border: 5px solid #F3D29C;
+  z-index: 0;
+}
+
+.ears {
+  z-index: 0;
+}
+.ears::before {
+  left: 15px;
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  -ms-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+}
+.ears::after {
+  right: 15px;
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  -ms-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+
+/* HANDS & FEET */
+.hands::before, .hands::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 35%;
+  height: 4%;
+  width: 8%;
+  background: #F3D29C;
+  border: 2px solid #E2C391;
+  z-index: 5;
+}
+
+.feet::before, .feet::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 50%;
+  height: 5%;
+  width: 6%;
+  background: #F3D29C;
+  border: 2px solid #E2C391;
+  border-bottom: 0;
+  border-radius: 50% 50% 30% 30%;
+  transform-origin: bottom;
+  z-index: 5;
+}
+
+.hands::before {
+  left: 40%;
+  border-left: 0;
+  border-radius: 30% 60% 60% 30%;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform: rotate(-20deg);
+  -ms-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+}
+.hands::after {
+  right: 40%;
+  border-right: 0;
+  border-radius: 60% 30% 30% 60%;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  transform: rotate(20deg);
+}
+
+.feet::before {
+  left: 42%;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+.feet::after {
+  right: 42%;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+a, a:hover, a:visited, a:focus {
+  text-decoration: none;
+  color: #3F3F3F;
+}
+
+.watchme {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: center;
+}
+.watchme span {
+  background: #fff;
+}
+.watchme p {
+  color: #3F3F3F;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+.watchme .fa {
+  vertical-align: middle;
+  color: #ff0000;
+  font-size: 3em;
+}

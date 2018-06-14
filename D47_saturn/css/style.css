@@ -1,0 +1,230 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(135deg, #0B0F2B, #090D23);
+}
+
+.saturn {
+  position: relative;
+  top: 20%;
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(to top, #DDBF7A 20%, #F9DA90 25%, #F9DA90 30%, #DDBF7A 35%, #DDBF7A 40%, #F9DA90 50%, #F9DA90 65%, #DDBF7A 70%, #DDBF7A 80%, #F9DA90 85%);
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  transform: rotate(15deg);
+  box-shadow: inset -15px 0 5px #DDBF7A, 0px 0px 4px #F9DA90;
+}
+
+.ring {
+  position: absolute;
+  top: 17%;
+  left: calc((100% - 190px)/2);
+  border: 20px solid #CC9E61;
+  height: 150px;
+  width: 190px;
+  border-radius: 50%;
+  -webkit-transform: rotate(15deg) rotateX(75deg);
+  -moz-transform: rotate(15deg) rotateX(75deg);
+  -ms-transform: rotate(15deg) rotateX(75deg);
+  transform: rotate(15deg) rotateX(75deg);
+  z-index: 1;
+  box-shadow: 0 0 8px 5px #CC9E61;
+}
+
+.eye-left, .eye-right {
+  position: absolute;
+  top: 30%;
+  height: 12px;
+  width: 10px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.eye-left::before, .eye-left::after, .eye-right::before, .eye-right::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 2px;
+  left: 2px;
+  height: 3px;
+  width: 3px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.eye-left {
+  left: 35%;
+}
+.eye-left::after {
+  top: 6px;
+  left: 6px;
+  height: 1px;
+  width: 1px;
+}
+
+.eye-right {
+  right: 35%;
+}
+.eye-right::after {
+  top: 6px;
+  left: 6px;
+  height: 1px;
+  width: 1px;
+}
+
+.mouth {
+  position: absolute;
+  top: 32%;
+  left: calc((100% - 15px)/2);
+  height: 20px;
+  width: 15px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid #333;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.stars .top, .stars .top::before, .stars .top::after, .stars .left, .stars .left::before, .stars .left::after, .stars .bottom, .stars .bottom::before, .stars .bottom::after, .stars .right, .stars .right::before {
+  background: #EFE894;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 1px #EFE894;
+  -webkit-animation: glow 5s linear infinite 0s;
+  -moz-animation: glow 5s linear infinite 0s;
+  -ms-animation: glow 5s linear infinite 0s;
+  animation: glow 5s linear infinite 0s;
+}
+
+.stars {
+  position: absolute;
+  top: 20%;
+  left: calc((100% - 300px)/2);
+  height: 200px;
+  width: 300px;
+  z-index: 0;
+}
+.stars .top {
+  position: absolute;
+  top: -10px;
+  left: 10%;
+  height: 3px;
+  width: 3px;
+}
+.stars .top::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -25px;
+  left: 150px;
+  height: 4px;
+  width: 4px;
+}
+.stars .top::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -15px;
+  left: 60px;
+  height: 3px;
+  width: 3px;
+}
+.stars .left {
+  position: absolute;
+  top: 0%;
+  left: 25%;
+  height: 4px;
+  width: 4px;
+}
+.stars .left::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 53px;
+  left: -12px;
+  height: 3px;
+  width: 3px;
+}
+.stars .left::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -20px;
+  left: 60px;
+  height: 3px;
+  width: 3px;
+}
+.stars .bottom {
+  position: absolute;
+  bottom: 50%;
+  right: 28%;
+  height: 3px;
+  width: 3px;
+}
+.stars .bottom::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 4px;
+  width: 4px;
+  bottom: 35px;
+  right: -10px;
+}
+.stars .bottom::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 3px;
+  width: 3px;
+  top: 20px;
+  right: 60px;
+}
+.stars .right {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  height: 4px;
+  width: 4px;
+}
+.stars .right::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 3px;
+  width: 3px;
+  top: 10px;
+  right: 50px;
+}
+
+@-webkit-keyframes glow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes glow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}

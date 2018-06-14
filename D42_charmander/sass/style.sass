@@ -1,0 +1,56 @@
+/* COLORS */
+$bg: #FFE2EF
+$black : #333
+$yellow:  #FFEE32
+$red: #FF3D32
+$orange: #FF8D14
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+
+.charmander
+	position: absolute
+	top: 20%
+	left: calc((100% - 80px)/2)
+	@include size(5px,5px)
+	background: $black
+	box-shadow: /* Line 1 */ 50px 0 $black, 55px 0px $black, 60px 0 $black, 65px 0 $black, /* Line 2 */-5px 5px $black, 0px 5px $red, 5px 5px $black, 45px 5px $black, 50px 5px $orange, 55px 5px $orange, 60px 5px $orange, 65px 5px $orange, 70px 5px $black,/* Line 3 */-10px 10px $black, -5px 10px $red, 0px 10px $red, 0px 10px $black, 5px 10px $black, 40px 10px $black, 45px 10px $orange, 50px 10px $orange, 55px 10px $orange, 60px 10px $orange, 65px 10px $orange, 70px 10px $orange, 75px 10px $black, /* Line 4 */ -10px 15px $black, -5px 15px $red, 0px 15px $red, 5px 15px $black, 40px 15px $black, 45px 15px $orange, 50px 15px $orange, 55px 15px $orange, 60px 15px $orange, 65px 15px $orange, 70px 15px $orange, 75px 15px $black,/* Line 5 */-15px 20px $black, -10px 20px $red, -5px 20px $red, 0px 20px $red, 5px 20px $red, 10px 20px $black, 35px 20px $black, 40px 20px $orange, 45px 20px $orange, 50px 20px $orange, 55px 20px $orange, 60px 20px $orange, 65px 20px $orange, 70px 20px $orange, 75px 20px $orange, 80px 20px $black,/* Line 6 */-15px 25px $black, -10px 25px $red, -5px 25px $yellow, 0px 25px $red, 5px 25px $red, 10px 25px $black, 35px 25px $black, 40px 25px $orange, 45px 25px $orange, 50px 25px $orange, 55px 25px $black, 60px 25px #fff, 65px 25px $orange, 70px 25px $orange, 75px 25px $orange, 80px 25px $orange, 85px 25px $black,/* Line 7 */-15px 30px $black, -10px 30px $red, -5px 30px $yellow, 0px 30px $yellow, 5px 30px $red, 10px 30px $black, 30px 30px $black, 35px 30px $orange, 40px 30px $orange, 45px 30px $orange, 50px 30px $orange, 55px 30px $black, 60px 30px $black, 65px 30px $orange, 70px 30px $orange, 75px 30px $orange, 80px 30px $orange, 85px 30px $black, /* Line 8 */-10px 35px $black, -5px 35px $black, 0px 35px $yellow, 5px 35px $black, 30px 35px $black, 35px 35px $orange, 40px 35px $orange, 45px 35px $orange, 50px 35px $orange, 55px 35px $black, 60px 35px $black, 65px 35px $orange, 70px 35px $orange, 75px 35px $orange, 80px 35px $orange, 85px 35px $black,/* Line 9 */-5px 40px $black, 0px 40px $orange, 5px 40px $black, 25px 40px $black, 30px 40px $orange, 35px 40px $orange, 40px 40px $orange, 45px 40px $orange, 50px 40px $orange, 55px 40px $orange, 60px 40px $orange, 65px 40px $orange, 70px 40px $orange, 75px 40px $orange, 80px 40px $black,/* Line 10 */-5px 45px $black, 0px 45px $orange, 5px 45px $orange, 10px 45px $black, 20px 45px $black, 25px 45px $orange, 30px 45px $orange, 35px 45px $orange, 40px 45px $orange, 45px 45px $orange, 50px 45px $orange, 55px 45px $orange, 60px 45px $orange, 65px 45px $orange, 70px 45px $black, 75px 45px $black,/* Line 11 */0px 50px $black, 5px 50px $orange, 10px 50px $orange, 15px 50px $black, 20px 50px $black, 25px 50px $orange, 30px 50px $orange, 35px 50px $orange, 40px 50px $black, 45px 50px $orange, 50px 50px $orange, 55px 50px $black, 60px 50px $black, 65px 50px $black,/* Line 12 */0px 55px $black, 5px 55px $orange, 10px 55px $orange, 15px 55px $black, 20px 55px $orange, 25px 55px $orange, 30px 55px $orange, 35px 55px $orange, 40px 55px $orange, 45px 55px $black, 50px 55px $yellow, 55px 55px $yellow, 60px 55px $black,/* Line 13 */5px 60px $black, 10px 60px $orange, 15px 60px $black, 20px 60px $orange, 25px 60px $orange, 30px 60px $orange, 35px 60px $black, 40px 60px $black, 45px 60px $yellow, 50px 60px $yellow, 55px 60px $yellow, 60px 60px $black,/* Line 14 */10px 65px $black, 15px 65px $black, 20px 65px $orange, 25px 65px $orange, 30px 65px $orange, 35px 65px $orange, 40px 65px $yellow, 45px 65px $yellow, 50px 65px $yellow, 55px 65px $black, 60px 65px #fff, 65px 65px $black,/* Line 15 */15px 70px $black, 20px 70px $black, 25px 70px $orange, 30px 70px $orange, 35px 70px $orange, 40px 70px $yellow, 45px 70px $yellow, 50px 70px $black, 55px 70px $black, 60px 70px $black,/* Line 16 */20px 75px $black, 25px 75px $black, 30px 75px $orange, 35px 75px $black, 40px 75px $black, 45px 75px $black,/* Line 17 */20px 80px $black, 25px 80px #fff, 30px 80px $orange, 35px 80px #fff, 40px 80px $black,/* Line 18 */20px 85px $black, 25px 85px $black, 30px 85px $black, 35px 85px $black
+	
+	
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

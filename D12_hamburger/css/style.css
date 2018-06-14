@@ -1,0 +1,179 @@
+/* COLORS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #3F5682;
+}
+
+.canvas {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+  background: #3F5682;
+}
+
+.buns .top, .buns .bottom {
+  position: absolute;
+  left: 10%;
+  height: 10%;
+  width: 80%;
+  background: #F2B724;
+  z-index: 2;
+}
+
+.buns .top {
+  height: 21%;
+  top: 18%;
+  border-radius: 4em 4em 5px 5px;
+  border-top: 2px solid #E8BB4C;
+}
+.buns .bottom {
+  left: 12.5%;
+  bottom: 26%;
+  width: 75%;
+  border-radius: 5px 5px 4em 4em;
+  border-bottom: 2px solid #E8BB4C;
+}
+
+.patty {
+  position: absolute;
+  bottom: 36%;
+  left: 7.5%;
+  height: 10%;
+  width: 85%;
+  background: #895643;
+  border-radius: 0.7em;
+}
+
+.cheese {
+  position: absolute;
+  bottom: 37.5%;
+  left: 10%;
+  height: 0;
+  width: 0;
+  border-top: 40px solid #FFE100;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+}
+
+.tomatoes .left, .tomatoes .right {
+  position: absolute;
+  bottom: 46%;
+  height: 5%;
+  width: 40%;
+  background: #E05C5C;
+  border-radius: 2em;
+}
+
+.tomatoes .left {
+  left: 10%;
+  transform: rotate(-5deg);
+}
+.tomatoes .right {
+  right: 10%;
+  transform: rotate(2deg);
+}
+
+.salad .left, .salad .right {
+  position: absolute;
+  top: 44%;
+  height: 8%;
+  width: 55%;
+  background: #79AF60;
+  border-radius: 50%;
+  border: 5px solid #79AF60;
+}
+
+.salad .left {
+  left: 5%;
+}
+.salad .right {
+  right: 5%;
+}
+
+.pineapple {
+  position: absolute;
+  left: 12.5%;
+  top: 37%;
+  height: 10%;
+  width: 75%;
+  background: #FFFA84;
+  border-radius: 0.5em;
+  z-index: 1;
+}
+
+.sesam .seed {
+  position: absolute;
+  top: 20%;
+  height: 2.5%;
+  width: 2.5%;
+  background: #FFE29B;
+  border-radius: 1em;
+  z-index: 3;
+}
+
+.sesam .seed:nth-child(1) {
+  left: 35%;
+}
+.sesam .seed:nth-child(2) {
+  top: 23%;
+  left: 45%;
+}
+.sesam .seed:nth-child(3) {
+  top: 25%;
+  left: 30%;
+}
+.sesam .seed:nth-child(4) {
+  top: 30%;
+  left: 37%;
+}
+.sesam .seed:nth-child(5) {
+  top: 30%;
+  left: 48%;
+}
+.sesam .seed:nth-child(6) {
+  top: 28%;
+  right: 35%;
+}
+.sesam .seed:nth-child(7) {
+  top: 26%;
+  right: 43%;
+}
+.sesam .seed:nth-child(8) {
+  top: 22%;
+  right: 35%;
+}
+
+.bites .bite {
+  position: absolute;
+  height: 40%;
+  width: 40%;
+  background: #3F5682;
+  border-radius: 50%;
+}
+
+.bites {
+  position: absolute;
+  top: 13%;
+  right: -5%;
+  height: 45%;
+  width: 45%;
+  z-index: 3;
+}
+.bites .bite:nth-child(1) {
+  left: 20%;
+}
+.bites .bite:nth-child(2) {
+  top: 25%;
+  left: 28%;
+}
+.bites .bite:nth-child(3) {
+  top: 45%;
+  left: 45%;
+}

@@ -1,0 +1,109 @@
+/* COLORS */
+$bg: #61ADAD
+
+$l-pink: #FFE5EB
+$pink: #FFD6DF
+
+$l-yellow: #FFF2E5
+$yellow: #FFEAD6
+
+$green: #D7FFD6
+$l-green: #E5FFE5
+
+$blue: #D6F4FF
+$l-blue: #E5F8FF
+
+
+$black: #2c2e2d
+$grey: #c6c6c6
+$silver: #e0e2e2
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+	
+.macbook
+	position: relative
+	top: 12%
+	margin: auto
+	@include size(300px,300px)
+
+.screen
+	position: absolute
+	top: 10%
+	left: calc((100% - 78%)/2)
+	@include size(47%,78%)
+	background: linear-gradient(45deg, $pink, $l-pink, $yellow, $l-yellow, $green, $l-green, $blue, $l-blue, $pink, $l-pink)
+	border: 10px solid $black
+	border-radius: 10px 10px 0 0
+	-webkit-animation: rainbow 7s linear 0 infinite
+	background-size: 600% 600%
+	&::before
+		@include pseudo
+		top: -7px
+		left: calc((100% - 3px)/2)
+		@include size(3px,3px)
+		background: $grey
+		border-radius: 50%
+		opacity: 0.5
+	
+.bottom
+	position: absolute
+	top: 56%
+	left: 5%
+	@include size(7px,90%)
+	background: $silver
+	&::before
+		@include pseudo
+		left: calc((100% - 40px)/2)
+		@include size(3px,40px)
+		background: $grey
+		border-radius: 0 0 10px 10px
+	&::after
+		@include pseudo
+		bottom: -6px
+		@include size(7px,100%)
+		background: $grey
+		border-radius: 0 0 30% 30%/50%
+	
+@keyframes rainbow
+	0%
+		background-position: 0% 100%
+	100%
+		background-position: 100% 0%
+	
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

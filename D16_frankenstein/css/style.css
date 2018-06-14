@@ -1,0 +1,356 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #222233;
+}
+
+.canvas {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 350px;
+  width: 350px;
+  background: #222233;
+}
+
+/* FRANKENSTEIN'S MONSTER */
+/* HEAD, EARS, EYES, HAIR */
+.head::before, .head::after {
+  top: 55%;
+  height: 20%;
+  width: 25%;
+  background: #00CF80;
+  border-radius: 50%;
+}
+
+.head-copy::before, .head-copy::after {
+  top: 60%;
+  height: 10%;
+  width: 8%;
+  background: #3CB572;
+}
+
+.eyes .left, .eyes .right {
+  position: absolute;
+  height: 15px;
+  width: 12px;
+  background: #383838;
+  border-radius: 50%/25%;
+  transform-origin: 100%;
+}
+
+.eyes::before, .eyes::after {
+  top: -12px;
+  height: 8px;
+  width: 40px;
+  border-top: 2px solid #00CF80;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-radius: 40%;
+  z-index: 3;
+}
+
+.eyebrow::before, .eyebrow::after {
+  height: 7px;
+  width: 25px;
+  background: #383838;
+  border-radius: 5px;
+}
+
+.hair {
+  position: absolute;
+  top: -1px;
+  background: #383838;
+  width: 100%;
+  height: 15%;
+  border-radius: 1em 1em 0 0;
+  z-index: 2;
+}
+.hair::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 80%;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, #383838 0, transparent 0%, transparent 66.667%, #383838 0%), linear-gradient(-45deg, transparent 33.333%, transparent 0%, transparent 66.667%, #383838 0%);
+  background-size: 30px 30px;
+  background-repeat: repeat-X;
+}
+
+.head {
+  position: absolute;
+  top: 5%;
+  left: 27.5%;
+  height: 50%;
+  width: 45%;
+  background: #00CF80;
+  border-radius: 2em 2em 3em 3em;
+}
+.head::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: -11%;
+}
+.head::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: -11%;
+}
+
+.head-copy {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #00CF80;
+  border-left: 2px solid #3CB572;
+  border-right: 2px solid #3CB572;
+  border-bottom: 1px solid #3CB572;
+  border-radius: 2em 2em 3em 3em;
+  z-index: 2;
+}
+.head-copy::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: -8%;
+  border-radius: 50% 0 0 50%;
+}
+.head-copy::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: -8%;
+  border-radius: 0 50% 50% 0;
+}
+
+.eyebrow {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  z-index: 4;
+}
+.eyebrow::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 1px;
+  left: 30%;
+  transform: rotate(10deg);
+}
+.eyebrow::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: 30%;
+  transform: rotate(-10deg);
+}
+
+.eyes {
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  z-index: 3;
+}
+.eyes::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 20%;
+  transform: rotate(-5deg);
+}
+.eyes::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: 20%;
+  transform: rotate(5deg);
+}
+.eyes .left {
+  left: 34%;
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forward;
+}
+.eyes .right {
+  right: 34%;
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forward;
+}
+.eyes .inner-eye {
+  position: absolute;
+  top: 15%;
+  left: 1px;
+  background: #fff;
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+}
+
+.earring {
+  position: absolute;
+  bottom: 22%;
+  left: -4%;
+  background: #AAAAAA;
+  height: 10px;
+  width: 3px;
+  transform: rotate(10deg);
+}
+
+.scar {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  height: 2px;
+  width: 40%;
+  background: #494949;
+  z-index: 4;
+  transform: rotate(-15deg);
+}
+
+.scars {
+  position: absolute;
+  top: -9px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+.scars li {
+  margin-top: -10px;
+  display: inline-block;
+  background: #494949;
+  height: 8px;
+  width: 2px;
+  margin: 0 3px;
+}
+
+/* MOUTH, NOSE */
+.teeth::before, .teeth::after {
+  width: 10px;
+  background: #fff;
+  border-radius: 1px 1px 0 0;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 15%;
+  left: 35%;
+  height: 3px;
+  width: 30%;
+  background: #383838;
+  z-index: 2;
+}
+.mouth::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -28px;
+  left: 15px;
+  height: 5px;
+  width: 12px;
+  border-radius: 0 0 1em 1em;
+  border-bottom: 3px solid #383838;
+  border-left: 3px solid #383838;
+  border-right: 3px solid #383838;
+}
+
+.teeth::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -5px;
+  left: 5px;
+  height: 5px;
+  border-right: 1px solid #AAAAAA;
+}
+.teeth::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -4px;
+  left: 16px;
+  height: 4px;
+}
+
+/* NECK, BOLTS */
+.bolts .left, .bolts .right {
+  position: absolute;
+  top: 40%;
+  height: 35%;
+  width: 25%;
+  background: #AAAAAA;
+}
+
+.bolts .left::before, .bolts .right::before {
+  top: -4px;
+  background: #AAAAAA;
+  height: 21px;
+  width: 8px;
+}
+
+.neck {
+  position: absolute;
+  bottom: -20%;
+  left: 30%;
+  height: 25%;
+  width: 40%;
+  background: #00CF80;
+  border: 2px solid #3CB572;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+}
+
+.bolts .left {
+  left: -22%;
+  border-right: 2px solid #AA5C5C;
+  border-radius: 5px 0 0 5px;
+}
+.bolts .left::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: -5px;
+  border-radius: 1em;
+}
+.bolts .right {
+  right: -22%;
+  border-left: 2px solid #AA5C5C;
+  border-radius: 0 5px 5px 0;
+}
+.bolts .right::before {
+  position: absolute;
+  display: block;
+  content: "";
+  right: -5px;
+  border-radius: 1em;
+}
+
+/* ANIMATIONS /* */
+@keyframes blink {
+  0% {
+    transform: scale(1);
+  }
+  1% {
+    transform: translateY(5px) scaleY(0.1);
+  }
+  3%, 100% {
+    transform: scale(1);
+  }
+}

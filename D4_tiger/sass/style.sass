@@ -1,0 +1,291 @@
+/* COLOR VARIABLES */
+$bg: #596B64
+$orange: #F29752
+$black: #323031
+$beige: #FDE4CF
+$blue: #14213D
+$darkorange: #B16E3C
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 10%
+	margin: auto
+	height: 300px
+	width: 350px
+	background: $bg
+
+/* HEAD */
+.head
+	position: relative
+	top: 18%
+	margin: auto
+	height: 50%
+	width: 60%
+	background: $orange
+	border-radius: 40% 40% 60% 60%
+	z-index: 1
+
+.head-copy
+	z-index: 2
+	position: absolute
+	height: 100%
+	width: 100%
+	background: $orange
+	border-radius: 40% 40% 60% 60%
+
+/* EARS */
+%ears
+	position: absolute
+	top: -5%
+	z-index: 1
+	height: 45%
+	width: 25%
+	background: $black
+	border-radius: 0 100% 0 0
+	transform: rotate(-10deg)
+
+.ears
+	.left
+		@extend %ears
+		left: 0
+	.right
+		@extend %ears
+		right: 0
+		transform: scaleX(-1) rotate(-10deg)
+	.inner
+		position: absolute
+		height: 100%
+		width: 25%
+		background: $darkorange
+		border-radius: 0 100% 0 0
+	
+/* STRIPES */
+%stripes-top
+	position: absolute
+	display: flex
+	height: 0
+	width: 0
+	border-top: 35px solid $black
+	border-right: 10px solid transparent
+	border-left: 10px solid transparent
+	z-index: 3
+
+%stripes-sides
+	position: absolute
+	display: flex
+	height: 0
+	width: 0
+	border-top: 20px solid $black
+	border-right: 7px solid transparent
+	border-left: 7px solid transparent
+	z-index: 3
+
+
+.stripes 
+	.top, .left, .right
+		&::before, &::after
+			position: relative
+			display: block
+			content: ''
+			height: 100%
+			width: 100%
+	
+.stripes
+	.top
+		@extend %stripes-top
+		left: 45%
+		border-top: 20px solid $black
+	
+		&::before
+			@extend %stripes-top
+			left: -50px
+			top: -20px
+			transform: rotate(-3deg) 
+	
+		&::after
+			@extend %stripes-top
+			left: 10px
+			top: -20px
+			transform: rotate(3deg) 
+	
+	.left
+		@extend %stripes-sides
+		top: 45%
+		left: 1.5%
+		border-top: 20px solid $black
+		transform: rotate(-90deg)
+	
+		&::before
+			@extend %stripes-sides
+			left: -26px
+			top: -15px
+			transform: rotate(-30deg) 
+	
+		&::after
+			@extend %stripes-sides
+			left: -2px
+			top: -20px
+			transform: rotate(1deg) 
+	
+	.right
+		@extend %stripes-sides
+		top: 45%
+		right: 1%
+		border-top: 20px solid $black
+		transform: rotate(90deg)
+	
+		&::before
+			@extend %stripes-sides
+			left: -26px
+			top: -20px
+			transform: rotate(1deg) 
+	
+		&::after
+			@extend %stripes-sides
+			left: -2px
+			top: -15px
+			transform: rotate(30deg) 
+
+/* FACE */
+.face
+	position: absolute
+	top: 18%
+	left: 25.5%
+	height: 60%
+	width: 50%
+	z-index: 2
+
+	/* EYES */
+	%eyes
+		position: absolute
+		top: 25%
+		height: 20%
+		width: 20%
+		background: $black
+		border-radius: 50%
+		z-index: 2
+
+	.eyes
+		.left
+			@extend %eyes
+			left: 18%
+		.right
+			@extend %eyes
+			right: 18%
+
+		.inner
+			position: absolute
+			top: 10%
+			left: 10%
+			background: #fff
+			height: 30%
+			width: 30%
+			border-radius: 50%
+	
+	/* MOUTH */
+.mouth
+	position: absolute
+	background: $beige
+	bottom: -8%
+	height: 60%
+	width: 100%
+	border-radius: 45%
+
+/* NOSE */
+.nose
+	position: absolute
+	top: 0
+	z-index: 2
+	left: 21%
+	height: 0
+	width: 0
+	border-radius: 30%
+	border-top: 20px solid $black
+	border-right: 30px solid transparent
+	border-left: 30px solid transparent
+
+.line
+	position: absolute
+	left: 47.5%
+	top: 0
+	height: 70%
+	width: 5%
+	background: $black
+	z-index: 3
+
+.smile
+	position: absolute
+	bottom: 20%
+	left: 15%
+	height: 50%
+	width: 70%
+	border-bottom: 5px solid $black
+	border-left: 5px solid $beige
+	border-right: 5px solid $beige
+	z-index: 1
+	border-radius: 45%
+
+/* WHISKERS */
+%whiskers
+	position: absolute
+	display: flex
+	border-top: 50px solid $darkorange
+	border-left: 3px solid transparent
+	border-right: 3px solid transparent
+	border-radius: 40% 40% 10% 10%
+	height: 0
+	width: 0
+	transform: rotate(90deg)
+	z-index: 3
+
+.whiskers
+	.left, .right
+		&::before, &::after
+			position: relative
+			display: block
+			content: ''
+			height: 100%
+			width: 100%
+	
+	.left
+		@extend %whiskers
+		top: 43%
+		left: -5%
+	
+		&::before
+			@extend %whiskers
+			top: -50px
+			right: 15px
+			transform: rotate(10deg)
+	
+		&::after
+			@extend %whiskers
+			top: -50px
+			right: -4px
+			transform: rotate(-10deg)	
+	
+	.right
+		@extend %whiskers
+		top: 43%
+		right: -5%
+		transform: rotate(-90deg)
+	
+		&::before
+			@extend %whiskers
+			top: -50px
+			right: 15px
+			transform: rotate(10deg)
+	
+		&::after
+			@extend %whiskers
+			top: -50px
+			right: -4px
+			transform: rotate(-10deg)

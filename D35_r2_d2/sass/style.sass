@@ -1,0 +1,223 @@
+/* Original illustration by Konrad Kirpluk http://www.behance.net/kirpluk */
+
+/* COLORS */
+$bg: #e6e7ea
+$blue: #006ebe
+$white: #f2f2f2
+$grey: #cccccc
+$d-grey: #9c9992
+$black: #333
+$red: #f90000
+$l-grey: #d1d2d4
+$head-grey: #b3b3b3
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.r2d2
+	position: relative
+	top: 15%
+	margin: auto
+	@include size(300px,300px)
+	&::before
+		@include pseudo
+		bottom: 19%
+		left: 10%
+		@include size(4%,80%)
+		border-radius: 50%
+		background: $grey
+
+.head
+	@include pseudo
+	top: 1%
+	left: 25%
+	@include size(50%,50%)
+	background: $d-grey
+	border-radius: 50% 50% 0 0
+	border: 11px solid $black
+	z-index: 1
+	&::before
+		@include pseudo
+		left: calc((100% - 55px)/2)
+		@include size(39px,55px)
+		background: $blue
+		border-radius: 50% 50% 5px 5px /20% 20% 5px 5px
+		z-index: 2
+	&::after
+		@include pseudo
+		top: 0
+		right: 25%
+		@include size(100px,100px)
+		border-radius: 50%
+		box-shadow: 25px 5px 0 $head-grey
+		z-index: 1
+	
+%eye
+	@include pseudo
+	background: $white
+	border-radius: 50%
+
+.eye
+	position: absolute
+	top: 1px
+	left: calc((100% - 28px)/2)
+	@include size(28px,28px)
+	background: $black
+	border-radius: 50%
+	z-index: 2
+	&::before
+		@extend %eye
+		@include size(12px,12px)
+		top: 4px
+		left: 5px
+	&::after
+		@extend %eye
+		bottom: 6px
+		right: 5px
+		@include size(6px,6px)
+
+.body
+	position: absolute
+	bottom: 28%
+	left: 25%
+	@include size(48%,50%)
+	background: $grey
+	z-index: 5
+	border: 11px solid $black
+	border-radius: 0 0 40px 40px
+
+.white
+	position: absolute
+	@include size(100%,62%)
+	right: 0
+	background: $white
+	border-radius: 0 0 32px 20px
+	z-index: 2
+	&::before
+		@include pseudo
+		bottom: 9%
+		left: 9px
+		@include size(45px,15px)
+		background: $black
+		border-radius: 15px
+
+%blue
+	@include pseudo
+	@include size(100%,100%)
+	border-radius: 9px
+	background: $blue
+
+.blue
+	position: absolute
+	top: 25%
+	left: 25%
+	@include size(8px,50%)
+	background: $blue
+	z-index: 3
+	border-radius: 9px
+	&::before
+		@extend %blue
+		top: -18px
+	&::after
+		@extend %blue
+		top: 18px
+	
+.legs
+	position: absolute
+	bottom: 20%
+	left: calc((100% - 67px)/2)
+	@include size(50%,67px)
+	background: linear-gradient(to right, $grey 40%, $white 40%)
+	border-radius: 24px
+	border: 11px solid $black
+	z-index: 2
+
+%legs
+	
+	border: 11px solid $black
+	border-radius: 40px
+
+.back
+	position: absolute
+	top: 28%
+	left: 18%
+	@include size(52%,85px)
+	@extend %legs
+	background: linear-gradient(to top, $white 25%, $black 25%, $black 31%, $l-grey 31%)
+
+	&::before
+		@include pseudo
+		@include size(100%,100%)
+		top: -11px
+		right: -118px
+		@extend %legs
+		background: linear-gradient(to top, $white 25%, $black 25%, $black 31%, $white 31%)
+
+.stripes
+	position: absolute
+	bottom: -40px
+	list-style-type: none
+	padding: 0
+	margin: 0
+	display: flex
+	@include size(100%,100%)
+	justify-content: space-between
+	z-index: 5
+
+	li
+		@include size(8px,18px)
+		background: $blue
+		margin: 6px
+		border-radius: 8px
+		&:first-child,
+		&:last-child
+			@include size(8px,15px)
+		&:nth-child(4)
+			background: radial-gradient(circle at 50% 50%, $red 30%, $blue 30%)
+
+.original
+	position: absolute
+	bottom: 3%
+	right: 3%
+
+body, a
+	text-decoration: none
+	font-family: 'Open Sans', sans-serif
+	color: $black
+
+//.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

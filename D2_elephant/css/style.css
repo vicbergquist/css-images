@@ -1,0 +1,288 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background: #A8D0DB;
+}
+
+.canvas {
+  position: relative;
+  top: 10%;
+  margin: auto;
+  background: #A8D0DB;
+  height: 300px;
+  width: 350px;
+}
+
+.head {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 47.5%;
+  width: 45%;
+  background: #9397A1;
+  border-radius: 70% 70% 80% 80%;
+  z-index: 1;
+}
+
+.head-copy {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #9397A1;
+  border-radius: 70% 70% 80% 80%;
+  z-index: 2;
+  border-bottom: 5px solid #858A95;
+}
+
+.ear-left {
+  position: absolute;
+  top: -15%;
+  left: -55%;
+  height: 140%;
+  width: 100%;
+  background: #9397A1;
+  border-radius: 50%;
+  z-index: 1;
+  border-bottom: 1px solid #858A95;
+}
+.ear-left .inner-left {
+  position: absolute;
+  top: 5%;
+  left: 3%;
+  height: 90%;
+  width: 90%;
+  background: #858A95;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.ear-right {
+  position: absolute;
+  top: -15%;
+  right: -55%;
+  height: 140%;
+  width: 100%;
+  background: #9397A1;
+  border-radius: 50%;
+  z-index: 1;
+  border-bottom: 1px solid #858A95;
+}
+.ear-right .inner-right {
+  position: absolute;
+  top: 5%;
+  right: 3%;
+  height: 90%;
+  width: 90%;
+  background: #858A95;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.eye-left {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  height: 10.5%;
+  width: 10%;
+  z-index: 2;
+  background: #494C52;
+  border-radius: 50%;
+}
+
+.eye-right {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  height: 10.5%;
+  width: 10%;
+  z-index: 2;
+  background: #494C52;
+  border-radius: 50%;
+}
+
+.eyeball {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  height: 20%;
+  width: 20%;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cheek-left {
+  position: absolute;
+  top: 60%;
+  left: 18%;
+  background: #EFAAC4;
+  height: 9%;
+  width: 8%;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.cheek-right {
+  position: absolute;
+  top: 60%;
+  right: 18%;
+  background: #EFAAC4;
+  height: 9%;
+  width: 8%;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.nose {
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  height: 79%;
+  width: 30%;
+  background: #9397A1;
+  z-index: 2;
+  border-radius: 20% 20% 40% 40%;
+}
+.nose .nose-outline {
+  position: absolute;
+  bottom: 0;
+  background: #9397A1;
+  height: 90%;
+  width: 100%;
+  border-right: 2px solid #858A95;
+  border-left: 2px solid #858A95;
+  z-index: 2;
+  border-radius: 10% 10% 100% 100%;
+}
+
+.nose-left {
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+  height: 15%;
+  width: 50%;
+  background: #9397A1;
+  border-radius: 50%;
+  z-index: 3;
+  border-left: 2px solid #858A95;
+  border-bottom: 2px solid #858A95;
+}
+
+.nose-right {
+  position: absolute;
+  bottom: -5%;
+  right: 0;
+  height: 15%;
+  width: 50%;
+  background: #9397A1;
+  border-radius: 50%;
+  z-index: 3;
+  border-right: 2px solid #858A95;
+  border-bottom: 2px solid #858A95;
+}
+
+.wrinkle-top {
+  position: absolute;
+  top: 4%;
+  left: 16%;
+  height: 1.5%;
+  width: 70%;
+  background: #858A95;
+  border-radius: 50%;
+}
+
+.wrinkle-bottom {
+  position: absolute;
+  top: 8%;
+  left: 16%;
+  height: 1.5%;
+  width: 70%;
+  background: #858A95;
+  border-radius: 50%;
+}
+
+.tooth-left {
+  position: absolute;
+  top: 25%;
+  left: -25%;
+  height: 25%;
+  width: 30%;
+  background: #EAE5D5;
+  border-radius: 150% 10% 100% 100%;
+  z-index: 1;
+}
+
+.tooth-right {
+  position: absolute;
+  top: 25%;
+  right: -25%;
+  height: 25%;
+  width: 30%;
+  background: #EAE5D5;
+  border-radius: 10% 150% 100% 100%;
+  z-index: 1;
+}
+
+.body {
+  position: relative;
+  margin: auto;
+  height: 53%;
+  width: 55%;
+  background: #9397A1;
+  border-radius: 100% 100% 80% 80%;
+}
+
+.leg-left {
+  position: absolute;
+  bottom: -10%;
+  left: 15%;
+  height: 32%;
+  width: 28.5%;
+  background: #9397A1;
+  border-radius: 10% 10% 0 0;
+  z-index: 3;
+}
+
+.leg-right {
+  position: absolute;
+  bottom: -10%;
+  right: 15%;
+  height: 32%;
+  width: 28.5%;
+  background: #9397A1;
+  border-radius: 10% 10% 0 0;
+  z-index: 3;
+}
+
+.toe-1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 33.3%;
+  height: 15%;
+  background: #EAE5D5;
+  border-radius: 50% 50% 0 0;
+}
+
+.toe-2 {
+  position: absolute;
+  bottom: 0;
+  left: 33%;
+  width: 34%;
+  height: 17%;
+  background: #EAE5D5;
+  border-radius: 50% 50% 0 0;
+}
+
+.toe-3 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 33.3%;
+  height: 15%;
+  background: #EAE5D5;
+  border-radius: 50% 50% 0 0;
+}

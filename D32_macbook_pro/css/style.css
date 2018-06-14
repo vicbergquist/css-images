@@ -1,0 +1,101 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #61ADAD;
+}
+
+.macbook {
+  position: relative;
+  top: 12%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+
+.screen {
+  position: absolute;
+  top: 10%;
+  left: calc((100% - 78%)/2);
+  height: 47%;
+  width: 78%;
+  background: linear-gradient(45deg, #FFD6DF, #FFE5EB, #FFEAD6, #FFF2E5, #D7FFD6, #E5FFE5, #D6F4FF, #E5F8FF, #FFD6DF, #FFE5EB);
+  border: 10px solid #2c2e2d;
+  border-radius: 10px 10px 0 0;
+  -webkit-animation: rainbow 7s linear 0 infinite;
+  background-size: 600% 600%;
+}
+.screen::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -7px;
+  left: calc((100% - 3px)/2);
+  height: 3px;
+  width: 3px;
+  background: #c6c6c6;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.bottom {
+  position: absolute;
+  top: 56%;
+  left: 5%;
+  height: 7px;
+  width: 90%;
+  background: #e0e2e2;
+}
+.bottom::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: calc((100% - 40px)/2);
+  height: 3px;
+  width: 40px;
+  background: #c6c6c6;
+  border-radius: 0 0 10px 10px;
+}
+.bottom::after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -6px;
+  height: 7px;
+  width: 100%;
+  background: #c6c6c6;
+  border-radius: 0 0 30% 30%/50%;
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+.watchme {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: center;
+}
+.watchme span {
+  background: #fff;
+}
+.watchme p {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+.watchme .fa {
+  vertical-align: middle;
+  color: #ff0000;
+  font-size: 3em;
+}

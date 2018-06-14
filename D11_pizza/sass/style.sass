@@ -1,0 +1,145 @@
+/* COLORS */
+$bg: #FFF4D8
+$ldough: #FFD289
+$ddough: #F7CB85
+$lgreen: #9CC471
+$sauce: #C45E4C
+$balsamico: #23211B
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	height: 350px
+	width: 350px
+
+%mozzarella
+	position: absolute
+	background: #fff
+	border-radius: 45%
+
+%basil
+	position: absolute
+	height: 13%
+	width: 12%
+	border-radius: 50% 50% 60% 60%
+	background: $lgreen
+
+.mini-pizza
+	position: absolute
+	left: 25%
+	height: 50%
+	width: 50%
+	background: $ddough
+	border-radius: 50%
+
+	.crust
+		position: absolute
+		top: 2.5%
+		left: 2.5%
+		height: 95%	
+		width: 95%
+		border-radius: 50%
+		background: $sauce
+		border: 8px solid $ldough
+
+	.cheese
+		.mozzarella:nth-child(1)
+			@extend %mozzarella
+			top: 5%
+			left: 18%
+			height: 30%
+			width: 30%
+		.mozzarella:nth-child(2)
+			@extend %mozzarella
+			top: 8%
+			right: 20%
+			height: 27%
+			width: 27%
+		.mozzarella:nth-child(3)
+			@extend %mozzarella
+			top: 35%
+			left: 5%
+			height: 25%
+			width: 25%
+		.mozzarella:nth-child(4)
+			@extend %mozzarella
+			top: 32%
+			left: 32%
+			height: 33%
+			width: 33%
+		.mozzarella:nth-child(5)
+			@extend %mozzarella
+			top: 35%
+			right: 5%
+			height: 32%
+			width: 30%
+		.mozzarella:nth-child(6)
+			@extend %mozzarella
+			bottom: 8%
+			right: 20%
+			height: 26%
+			width: 26%
+		.mozzarella:nth-child(7)
+			@extend %mozzarella
+			bottom: 10%
+			left: 18%
+			height: 30%
+			width: 30%
+		
+	.basil
+		.leaf:nth-child(1)
+			@extend %basil
+			top: 5%
+			left: 30%
+			transform: rotate(10deg)
+		.leaf:nth-child(2)
+			@extend %basil
+			top: 22%
+			left: 15%
+			transform: rotate(-20deg)
+		.leaf:nth-child(3)
+			@extend %basil
+			top: 13%
+			right: 28%
+		.leaf:nth-child(4)
+			@extend %basil
+			top: 40%
+			left: 40%
+			transform: rotate(-50deg)
+		.leaf:nth-child(5)
+			@extend %basil
+			top: 45%
+			left: 18%
+			transform: rotate(30deg)
+		.leaf:nth-child(7)
+			@extend %basil
+			bottom: 25%
+			left: 30%
+			transform: rotate(30deg)
+		.leaf:nth-child(8)
+			@extend %basil
+			bottom: 50%
+			right: 28%
+			transform: rotate(20deg)
+		.leaf:nth-child(9)
+			@extend %basil
+			bottom: 30%
+			right: 23%
+			transform: rotate(-20deg)
+		.leaf:nth-child(10)
+			@extend %basil
+			bottom: 20%
+			right: 38%
+			transform: rotate(-20deg)
+	
+		
+		

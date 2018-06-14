@@ -1,0 +1,100 @@
+// COLORS
+$bg: #A4BFEB
+$darkpink: #E8D8E3
+$pink: #FFEDF9
+$grey: #CECECE
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	height: 400px
+	width: 400px
+	background: $bg
+
+%rings
+	position: absolute
+	top: 5%
+	left: 23%
+	padding: 0
+	margin: 0
+	list-style-type: none
+
+%ring
+	margin-bottom: 10px
+	height: 13px
+	width: 16px
+	border-radius: 50%
+
+.rings-top
+	@extend %rings
+	z-index: 2
+
+	li
+		@extend %ring
+		border-top: 4px solid $darkpink
+		border-bottom: 4px solid transparent
+		border-left: 4px solid transparent
+		border-right: 4px solid transparent
+	
+	li:first-child
+		margin-top: 15px
+
+.rings-bottom
+	@extend %rings
+	z-index: 0
+	li
+		@extend %ring
+		border-top: 4px solid transparent
+		border-bottom: 4px solid $darkpink
+		border-left: 4px solid $darkpink
+		border-right: 4px solid transparent
+	
+	li:first-child
+		margin-top: 15px
+
+%notepad
+	position: absolute
+	border-radius: 5px
+
+.notepad
+	@extend %notepad
+	top: 5%
+	left: 25%
+	height: 50%
+	width: 50%
+	background: $darkpink
+
+	.notepad-copy
+		@extend %notepad
+		top: -2%
+		left: -2%
+		height: 100%
+		width: 100%
+		background: #fff
+
+	ul
+		position: absolute
+		left: 10%
+		height: 100%
+		width: 80%
+		padding: 0
+		margin: 0
+		list-style-type: none
+
+
+		li
+			height: 1px
+			width: 100%
+			background: $darkpink
+			margin-top: 17px
+		li:first-child
+			margin-top: 26px

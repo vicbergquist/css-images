@@ -1,0 +1,501 @@
+/* COLORS */
+$bg: #BDD8FC
+$red: #FF5E59
+$blue: #1752AA
+$yellow: #FFDD59
+$black: #333333
+$skin: #FFDEC1
+$d-yellow: #EFD353
+$shadedarker: #F2CAA7
+$metal: #B2B2B2
+
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 10%
+	margin: auto
+	height: 350px
+	width: 350px
+
+.hair
+	position: absolute
+	top: 1%
+	left: calc((100% - 35%) / 2)
+	height: 50%
+	width: 35%
+	background: $black
+	-webkit-clip-path: polygon(10% 10%, 40% 0, 50% 2%, 60% 0, 90% 10%, 90% 33%, 100% 100%, 0% 100%, 10% 33%)
+	border-radius: 40% 40% 50% 50%
+	z-index: 0
+
+%headband
+	top: -13px
+	height: 23px
+	width: 55%
+	background: $black
+
+.headband
+	position: absolute
+	top: 7%
+	left: 40%
+	height: 7%
+	width: 20%
+	background: $yellow
+	border-bottom: 1px solid $d-yellow
+	z-index: 2
+	border-radius: 0 0 30% 30%
+
+	&::before
+		@include pseudo
+		@extend %headband
+		left: -1px
+		border-radius: 60% 0% 80% 0
+		
+	&::after
+		@include pseudo
+		@extend %headband
+		right: -1px
+		border-radius: 0% 50% 0 80%
+
+	.star
+		position: absolute
+		top: 18%
+		left: 35%
+		height: 75%
+		width: 30%
+		background: $red
+		-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)
+%ears
+	position: absolute
+	top: 53%
+	height: 20%
+	width: 15%
+	background: $skin
+
+.head
+	position: absolute
+	top: 4%
+	left: calc((100% - 19%)/2)
+	height: 24%
+	width: 19%
+	background: $skin
+	border-bottom: 1px solid $black
+	z-index: 1
+	border-radius: 50% 50% 100% 100% 
+
+%earrings
+	top: 45%
+	height: 15px
+	width: 15px
+	background: #fff
+	-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)
+.ears
+	.left
+		@extend %ears
+		left: -7%
+		border-radius: 30% 0 0 70%
+		&::before
+			@include pseudo
+			@extend %earrings
+			left: -43%
+		
+	.right
+		@extend %ears
+		right: -7%
+		border-radius: 0 30% 70% 0
+		&::before
+			@include pseudo
+			@extend %earrings
+			right: -43%
+
+%eyebrow
+	position: absolute
+	top: -3px
+	height: 2px
+	width: 110%
+	background: $black
+
+%eyes
+	position: absolute
+	top: 51%
+	height: 15px
+	width: 15px
+	background: #fff
+	border-radius: 50%
+	z-index: 2
+
+%iris
+	position: absolute
+	top: 2px
+	height: 10px
+	width: 10px
+	background: tint($blue, 30%)
+	border-radius: 50%
+
+%pupil
+	position: absolute
+	top: 2px
+	height: 5px
+	width: 5px
+	border-radius: 50%
+	background: $black
+	
+.eyes
+	.left
+		@include pseudo
+		@extend %eyes
+		left: 18%
+	
+		.eyebrow
+			@extend %eyebrow
+			right: -10%
+			border-radius: 80% 20% 20% 0%
+			transform: rotate(15deg)
+	
+		.iris
+			@extend %iris
+			left: 25%
+			.pupil
+				@extend %pupil
+				left: 35%
+				
+		
+	.right
+		@include pseudo
+		@extend %eyes
+		right: 18%
+	
+		.eyebrow
+			@extend %eyebrow
+			left: -10%
+			border-radius: 20% 80% 0% 20%
+			transform: rotate(-15deg)
+		
+		.iris
+			@extend %iris
+			right: 25%
+			.pupil
+				@extend %pupil
+				right: 35%
+		
+
+.nose
+	position: absolute
+	bottom: 25%
+	left: calc((100% - 10px) / 2)
+	height: 8px
+	width: 10px
+	border-radius: 50%
+	border-top: 1px solid transparent
+	border-left: 1px solid $shadedarker
+	border-right: 1px solid $shadedarker
+	border-bottom: 1px solid transparent
+		
+
+%lips
+	top: -1px
+	height: 2px
+	width: 40%
+	background: $red
+	border-radius: 50%
+
+.mouth	
+	position: absolute
+	bottom: 17%
+	left: calc((90% - 15px) /2 )
+	height: 3px
+	width: 18px
+	background: $red
+	border-radius: 0 0 50% 50%
+	transform: rotate(10deg)
+
+.neck
+	position: absolute
+	top: 27%
+	left: calc((100% - 5%)/2)
+	height: 3%
+	width: 5%
+	background: $skin
+	z-index: 0
+
+.upperbody
+	position: absolute
+	bottom: 43%
+	left: calc((100% - 120px) / 2)
+	border-top: 100px solid $skin
+	border-left: 60px solid transparent
+	border-right: 60px solid transparent
+	border-radius: 50% 50% 0 0
+%chest
+	top: -85px
+	height: 15px
+	width: 45px
+	background: $red
+	border-radius: 50% 50% 0 0 / 100% 100% 0 0
+
+.red
+	position: absolute
+	bottom: 42%
+	left: calc((100% - 90px)/2)
+	border-top: 75px solid $red
+	border-left: 45px solid transparent
+	border-right: 45px solid transparent
+	z-index: 2
+
+	&::before
+		@include pseudo
+		@extend %chest
+		left: -5px
+		
+	&::after
+		@include pseudo
+		@extend %chest
+		right: -5px
+
+.belt
+	position: absolute
+	left: calc((100% - 16%)/2)
+	bottom: 51%
+	height: 3%
+	width: 16%
+	background: $yellow
+	z-index: 3
+	border-radius: 20% 20% 50% 50%
+	&::before
+		@include pseudo
+		top: -6px
+		border-bottom: 12px solid $yellow
+		border-left: 28px solid transparent
+		border-right: 28px solid transparent
+	&::after
+		@include pseudo
+		bottom: -10px
+		border-top: 15px solid $yellow
+		border-left: 28px solid transparent
+		border-right: 28px solid transparent
+%arms
+	position: absolute
+	top: 32%
+	background: $skin
+	width: 20px
+	height: 50px
+	z-index: 3
+	transform-origin: top
+%lower
+	position: absolute
+	top: -40px
+	width: 20px
+	height: 90px
+	background: $skin
+	transform-origin: bottom
+%metal
+	bottom: 30%
+	background: $metal
+	height: 45%
+	width: 120%
+
+.arms
+	.left
+		@extend %arms
+		left: 34%
+		border-radius: 90% 0 40% 10%
+		transform: rotate(15deg)
+		.lower
+			@extend %lower
+			left: -35%
+			transform: rotate(50deg)
+			border-radius: 20% 20% 40% 40%
+			border: 1px solid $shadedarker
+			&::before
+				@include pseudo
+				@extend %metal
+				left: -10%
+				
+
+	.right
+		@extend %arms
+		right: 34%
+		border-radius: 0 90% 10% 40%
+		transform: rotate(-15deg)
+		.lower
+			@extend %lower
+			right: -35%
+			transform: rotate(-50deg)
+			border-radius: 20% 20% 40% 40%
+			border: 1px solid $shadedarker
+			&::before
+				@include pseudo
+				@extend %metal
+				left: -10%
+	
+	
+.lowerbody
+	position: absolute
+	left: 35%
+	bottom: 50%
+	width: 30%
+	z-index: 2
+
+	&::before
+		@include pseudo
+		height: 25px
+		width: 50px
+		background: $blue
+		left: 14%
+		transform: rotate(35deg)
+		border-radius: 0 0 20% 50%
+	
+	&::after
+		@include pseudo
+		height: 25px
+		width: 50px
+		background: $blue
+		right: 14%
+		transform: rotate(-35deg)
+		border-radius: 0 0 50% 20%
+	
+.stars
+	position: absolute
+	height: 10px
+	width: 10px
+	background: #fff
+	-webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)
+	z-index: 3
+.stars:nth-child(1)
+	top: -5px
+	left: 20%
+.stars:nth-child(2)
+	left: 30%
+.stars:nth-child(3)
+	top: 5px
+	left: 21%
+.stars:nth-child(4)
+	top: 7px
+	left: 40%
+.stars:nth-child(5)
+	top: 12px
+	left: 30%
+.stars:nth-child(6)
+	top: 18px
+	left: 40%
+.stars:nth-child(7)
+	top: -5px
+	right: 20%
+.stars:nth-child(8)
+	right: 30%
+.stars:nth-child(9)
+	top: 5px
+	right: 21%
+.stars:nth-child(10)
+	top: 7px
+	right: 40%
+.stars:nth-child(11)
+	top: 12px
+	right: 30%
+.stars:nth-child(12)
+	top: 18px
+	right: 40%
+
+%thighs
+	position: absolute
+	bottom: 20%
+	height: 32%
+	width: 12%
+	background: $skin
+	transform-origin: top
+	
+.thighs
+	.left
+		@extend %thighs
+		left: 41%
+		transform: rotate(20deg)
+		border-radius: 30% 0 0 100%
+	
+	.right
+		@extend %thighs
+		right: 41%
+		transform: rotate(-20deg)
+		border-radius: 0 30% 100% 0
+	
+%calves
+	position: absolute
+	bottom: -8%
+	height: 36%
+	width: 7%
+	background: $skin
+	transform-origin: top
+	z-index: 1
+%boots
+	bottom: -2%
+	background:  -webkit-linear-gradient(left, $red 40%, #ffffff 40%, #ffffff 60%, $red 60%)
+	height: 72%
+	width: 100%
+
+.calves
+	.left
+		@extend %calves
+		left: 37%
+		transform: rotate(15deg)
+		border-radius: 30% 0 0 90%
+	
+		&::before
+			@include pseudo
+			bottom: 69%
+			border-bottom: 12px solid #fff
+			border-left: 12px solid transparent
+			border-right: 12px solid transparent
+			
+		&::after
+			@include pseudo
+			@extend %boots
+			border-radius: 0 0 0 80%
+		
+			
+	.right
+		@extend %calves
+		right: 37%
+		transform: rotate(-15deg)
+		border-radius: 0 30% 90% 0
+	
+		&::before
+			@include pseudo
+			bottom: 69%
+			border-bottom: 12px solid #fff
+			border-left: 12px solid transparent
+			border-right: 12px solid transparent
+	
+		&::after
+			@include pseudo
+			@extend %boots
+			border-radius: 0 0 80% 0
+%feet
+	background: $red
+	bottom: -14%
+	height: 35px
+	width: 18px
+	border-radius: 30% 30% 70% 70%
+	z-index: 0
+
+.feet
+	&::before
+		@include pseudo
+		@extend %feet
+		left: 29%
+		transform: rotate(20deg)
+	&::after
+		@include pseudo
+		@extend %feet
+		right: 29%
+		transform: rotate(-20deg)

@@ -1,0 +1,226 @@
+/* Original illustration by Konrad Kirpluk http://www.behance.net/kirpluk */
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #e6e7e9;
+}
+
+.canvas {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+.canvas::before {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 29%;
+  left: 20%;
+  height: 3%;
+  width: 60%;
+  border-radius: 50%;
+  background: #cccccc;
+}
+
+.head {
+  position: absolute;
+  left: calc((100% - 39%)/2);
+  height: 20%;
+  width: 39%;
+  background: #eefc21;
+  border-left: 9px solid #333;
+  border-right: 9px solid #333;
+  border-top: 9px solid #333;
+  border-radius: 50% 50% 0 0/100% 100% 0 0;
+  z-index: 2;
+  box-shadow: inset -12px 0 5px #eefc21, inset -28px 0 5px #f6fab9;
+}
+.head::before {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -73px;
+  left: -9px;
+  height: 65px;
+  width: 100%;
+  background: #eefc21;
+  border-left: 9px solid #333;
+  border-right: 9px solid #333;
+  border-bottom: 9px solid #333;
+  border-radius: 0 0 50% 50%/0 0 100% 100%;
+  box-shadow: inset -12px 0 5px #eefc21, inset -28px 0 5px #f6fab9;
+}
+.head::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -20px;
+  left: calc((100% - 45px)/2);
+  height: 5px;
+  width: 30px;
+  background: #eefc21;
+  border: 7px solid #333;
+  border-radius: 50% 50% 0 0/60%;
+}
+
+.nose-eyes::before, .nose-eyes::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -34px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: #f6fab9;
+  border: 3px solid #333;
+  background-image: linear-gradient(to right, transparent 10%, #333 10%, #333 20%, transparent 20%, transparent 30%, #333 30%, #333 40%, transparent 40%, transparent 60%, #333 60%, #333 70%, transparent 70%, transparent 80%, #333 80%, #333 90%, transparent 90%), radial-gradient(circle at 50% 50%, #333 35%, transparent 35%);
+  z-index: 5;
+}
+
+.nose-eyes {
+  position: absolute;
+  top: 120%;
+  left: calc((100% - 10px)/2);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-bottom: 7px solid #f6fab9;
+  z-index: 5;
+}
+.nose-eyes::before {
+  left: 9px;
+}
+.nose-eyes::after {
+  right: 9px;
+}
+
+.neck::before, .neck::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -23px;
+  height: 25px;
+  width: 7px;
+  background: #eefc21;
+  border: 6px solid #333;
+}
+
+.neck {
+  position: absolute;
+  top: 33%;
+  left: calc((100% - 18px)/2);
+  height: 7px;
+  width: 18px;
+  background: #333;
+  z-index: 3;
+}
+.neck::before {
+  border-radius: 50% 0 0 50%/50%;
+  left: -54px;
+  -webkit-transform: rotate(-27deg);
+  -moz-transform: rotate(-27deg);
+  -ms-transform: rotate(-27deg);
+  transform: rotate(-27deg);
+}
+.neck::after {
+  border-radius: 0 50% 50% 0/50%;
+  right: -54px;
+  -webkit-transform: rotate(27deg);
+  -moz-transform: rotate(27deg);
+  -ms-transform: rotate(27deg);
+  transform: rotate(27deg);
+}
+
+.body {
+  position: absolute;
+  top: 30%;
+  left: calc((100% - 38%)/2);
+  height: 40%;
+  width: 38%;
+  border: 9px solid #333;
+  background: #eefc21;
+  background-image: linear-gradient(to top, transparent 13%, #333 13%, #333 35%, transparent 35%);
+  border-radius: 50% 50% 40px 40px;
+  z-index: 1;
+}
+.body::before {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 12%;
+  left: calc((100% - 47px)/2);
+  height: 35px;
+  width: 35px;
+  background: #eefc21;
+  border: 6px solid #333;
+  border-radius: 50%;
+}
+.body::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 52px;
+  left: 35px;
+  height: 19px;
+  width: 19px;
+  background: #eefc21;
+  border: 4px solid #333;
+  border-radius: 50%;
+}
+
+.belt {
+  position: absolute;
+  top: 59%;
+  left: 43px;
+  height: 11px;
+  width: 11px;
+  background: #eefc21;
+  border: 3px solid #333;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.arms::before, .arms::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 34px;
+  width: 34px;
+  background: #eefc21;
+  border: 6px solid #333;
+  border-radius: 50%;
+  box-shadow: inset -5px 0 2px #eefc21, inset -10px 0 2px #f6fab9;
+}
+
+.arms {
+  position: absolute;
+  top: 22%;
+  height: 30%;
+  width: 100%;
+  z-index: 3;
+}
+.arms::before {
+  left: -17%;
+}
+.arms::after {
+  right: -17%;
+}
+
+.original {
+  position: absolute;
+  bottom: 3%;
+  right: 3%;
+}
+
+body, a {
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+}

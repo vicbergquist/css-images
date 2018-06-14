@@ -1,0 +1,209 @@
+// FONT
+@import url('https://fonts.googleapis.com/css?family=Raleway:400')
+
+// COLORS
+$bg: #DAD7CD
+$shadow: #C7C4BB
+$lgreen: #87B7A2
+$mgreen: #82AF9C
+$dgreen: #78A391
+$terracotta: #F49649
+$dterracotta: #DE8943
+$wood: #C49C6D
+$darkwood: #B38E64
+
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 5%
+	margin: auto
+	height: 350px
+	width: 350px
+	background: $bg
+
+/* SHADOW */
+.circle
+	position: absolute
+	bottom: -8%
+	height: 13%
+	width: 100%
+	background: $shadow
+	border-radius: 50%
+
+/* EASEL */	
+%feet
+	position: absolute
+	bottom: 0
+	height: 100%
+	width: 6%
+	background: $wood
+	border-radius: 0.5em 0.5em 0.2em 0.2em
+
+.easel
+	position: absolute
+	top: 10%
+	height: 100%
+	width: 100%
+
+	.foot-center
+		position: absolute
+		top: 5%
+		left: 47.5%
+		height: 85%
+		width: 6%
+		background: $wood
+		border-radius: 0.5em 0.5em 0.2em 0.2em
+		z-index: 0
+	
+	.easel-canvas
+		position: absolute
+		left: 22.5%
+		bottom: 30%
+		height: 55%
+		width: 55%
+		background: #fff
+		border-radius: 0.5em
+		z-index: 2
+
+		.succulent
+			position: absolute
+			top: 0
+			left: 15%
+			height: 70%
+			width: 70%
+			
+			.plant
+				position: absolute
+				left: 30%
+				top: 35%
+				height: 27%
+				width: 40%
+				background: $lgreen
+				border-radius: 2em 2em 0 0
+				z-index: 1
+		
+				.left
+					position: absolute
+					top: -30%
+					left: -15%
+					height: 80%
+					width: 60%
+					background: $lgreen
+					border-top: 2px solid $mgreen
+					border-left: 2px solid $mgreen
+					border-right: 2px solid transparent
+					border-radius: 50% 45% 45% 50%
+					transform: rotate(45deg)
+		
+					.top
+						position: absolute
+						top: -35%
+						height: 40%
+						width: 60%
+						background: $lgreen
+						border: 2px solid $mgreen
+						border-radius: 50% 45%
+						transform: rotate(-90deg)
+			
+				.right
+					position: absolute
+					top: -30%
+					right: -50%
+					height: 80%
+					width: 100%
+					background: $lgreen
+					border-top: 1px solid $mgreen
+					border-left: 2px solid transparent
+					border-right: 2px solid $mgreen
+					border-bottom: 2px solid $mgreen
+					border-radius: 50% 45% 45% 50%
+					transform: rotate(-45deg)
+		
+					.top
+						position: absolute
+						top: -40%
+						right: 0
+						height: 40%
+						width: 40%
+						background: $lgreen
+						border: 1px solid $mgreen
+						border-radius: 50% 45%
+						transform: rotate(130deg)
+						
+			.edge
+				position: absolute
+				bottom: 34%
+				left: 20%
+				height: 7%
+				width: 60%
+				background: $terracotta
+				border-bottom: 1px solid $dterracotta
+				border-radius: 0.2em
+				z-index: 3
+		
+			.pot
+				position: absolute
+				bottom: 10%
+				left: 25%
+				height: 30%
+				width: 50%
+				background: $terracotta
+				-webkit-clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%)
+				z-index: 2
+		
+			.under
+				position: absolute
+				bottom: 10%
+				left: 27.5%
+				height: 3%
+				width: 45%
+				background: $terracotta
+				border-top: 1px solid $dterracotta
+				border-radius: 0.5em
+				z-index: 2
+	.support
+		position: absolute
+		left: 20%
+		bottom: 30%
+		height: 5%
+		width: 60%
+		background: $darkwood
+		border-radius: 0.5em 0.5em 0.2em 0.2em
+		z-index: 3
+	
+	.feet
+		position: absolute
+		bottom: 0
+		height: 35%
+		width: 100%
+		z-index: 0
+	
+		.left
+			@extend %feet
+			left: 25%
+			transform: rotate(30deg)
+	
+		.right
+			@extend %feet
+			right: 25%
+			transform: rotate(-30deg)
+	
+.date
+	position: absolute
+	bottom: 15%
+	width: 100%
+	text-align: center
+	font-family: 'Raleway'
+	font-size: 2em
+	color: $mgreen
+			
+		
+	

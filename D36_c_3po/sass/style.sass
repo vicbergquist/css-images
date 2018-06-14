@@ -1,0 +1,210 @@
+/* Original illustration by Konrad Kirpluk http://www.behance.net/kirpluk */
+
+
+/* COLORS */
+$bg: #e6e7e9
+$yellow: #eefc21
+$l-yellow: #f6fab9
+$black: #333
+$grey: #cccccc
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	@include size(300px,300px)
+	&::before
+		@include pseudo
+		bottom: 29%
+		left: 20%
+		@include size(3%,60%)
+		border-radius: 50%
+		background: $grey
+	
+.head
+	position: absolute
+	left: calc((100% - 39%)/2)
+	@include size(20%,39%)
+	background: $yellow
+	border-left: 9px solid $black
+	border-right: 9px solid $black
+	border-top: 9px solid $black
+	border-radius: 50% 50% 0 0/100% 100% 0 0
+	z-index: 2
+	box-shadow: inset -12px 0 5px $yellow, inset -28px 0 5px $l-yellow
+	&::before
+		@include pseudo
+		bottom: -73px
+		left: -9px
+		@include size(65px,100%)
+		background: $yellow
+		border-left: 9px solid $black
+		border-right: 9px solid $black
+		border-bottom: 9px solid $black
+		border-radius: 0 0 50% 50%/0 0 100% 100%
+		box-shadow: inset -12px 0 5px $yellow, inset -28px 0 5px $l-yellow
+	&::after
+		@include pseudo
+		top: -20px
+		left: calc((100% - 45px)/2)
+		@include size(5px,30px)
+		background: $yellow
+		border: 7px solid $black
+		border-radius: 50% 50% 0 0/60%
+
+%eyes
+	@include pseudo
+	top: -34px
+	@include size(30px,30px)
+	border-radius: 50%
+	background: $l-yellow
+	border: 3px solid $black
+	background-image: linear-gradient(to right, transparent 10%, $black 10%, $black 20%, transparent 20%, transparent 30%, $black 30%, $black 40%, transparent 40%, transparent 60%, $black 60%, $black 70%, transparent 70%, transparent 80%, $black 80%, $black 90%, transparent 90%), radial-gradient(circle at 50% 50%, $black 35%, transparent 35%)
+	z-index: 5
+	
+.nose-eyes
+	position: absolute
+	top: 120%
+	left: calc((100% - 10px)/2)
+	border-right: 5px solid transparent
+	border-left: 5px solid transparent
+	border-bottom: 7px solid $l-yellow
+	z-index: 5
+	&::before
+		@extend %eyes
+		left: 9px
+	&::after
+		@extend %eyes
+		right: 9px
+	
+%neck
+	@include pseudo
+	top: -23px
+	@include size(25px,7px)
+	background: $yellow
+	border: 6px solid $black
+
+.neck
+	position: absolute
+	top: 33%
+	left: calc((100% - 18px)/2)
+	@include size(7px,18px)
+	background: $black
+	z-index: 3
+	&::before
+		@extend %neck
+		border-radius: 50% 0 0 50%/50%
+		left: -54px
+		@include cross(transform,rotate(-27deg))
+	&::after
+		@extend %neck
+		border-radius: 0 50% 50% 0/50%
+		right: -54px
+		@include cross(transform,rotate(27deg))
+
+.body
+	position: absolute
+	top: 30%
+	left: calc((100% - 38%)/2)
+	@include size(40%,38%)
+	border: 9px solid $black
+	background: $yellow
+	background-image: linear-gradient(to top, transparent 13%, $black 13%, $black 35%, transparent 35%)
+	border-radius: 50% 50% 40px 40px
+	z-index: 1
+	&::before
+		@include pseudo
+		bottom: 12%
+		left: calc((100% - 47px)/2)
+		@include size(35px,35px)
+		background: $yellow
+		border: 6px solid $black
+		border-radius: 50%
+	&::after
+		@include pseudo
+		top: 52px
+		left: 35px
+		@include size(19px,19px)
+		background: $yellow
+		border: 4px solid $black
+		border-radius: 50%
+	
+.belt
+	position: absolute
+	top: 59%
+	left: 43px
+	@include size(11px,11px)
+	background: $yellow
+	border: 3px solid $black
+	border-radius: 50%
+	z-index: 3
+
+%arms
+	@include pseudo
+	@include size(34px,34px)
+	background: $yellow
+	border: 6px solid $black
+	border-radius: 50%
+	box-shadow: inset -5px 0 2px $yellow, inset -10px 0 2px $l-yellow
+
+.arms
+	position: absolute
+	top: 22%
+	@include size(30%,100%)
+	z-index: 3
+	&::before
+		@extend %arms
+		left: -17%
+	&::after
+		@extend %arms
+		right: -17%
+	
+.original
+	position: absolute
+	bottom: 3%
+	right: 3%
+
+body, a
+	text-decoration: none
+	font-family: 'Open Sans', sans-serif
+	color: $black
+	
+//.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

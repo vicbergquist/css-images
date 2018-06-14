@@ -1,0 +1,334 @@
+/* COLORS */
+$bg: #577F55
+$orange: #FA730E
+$d-orange: #ED6904
+$black: #444
+$white: #FCEFE0
+$d-white: #FFE4C6
+$trunk: #724D22
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+	
+.fox
+	position: relative
+	top: 15%
+	margin: auto
+	@include size(300px,300px)
+
+%sides
+	@include pseudo
+	bottom: 2%
+	@include size(35%,60%)
+	background: $white
+	border-radius: 50%
+
+.head
+	position: absolute
+	top: 10%
+	left: 25%
+	@include size(35%,50%)
+	background: $orange
+	border-radius: 50%
+	border-top: 5px solid $d-orange
+	z-index: 3
+	&::before
+		@extend %sides
+		@include cross(transform, rotate(25deg))
+	&::after
+		@extend %sides
+		right: 0
+		@include cross(transform, rotate(-25deg))
+		
+%fluff-left
+	border-right: 20px solid $white
+	border-top: 8px solid transparent
+	border-bottom: 8px solid transparent
+%fluff-right
+	border-left: 20px solid $white
+	border-top: 8px solid transparent
+	border-bottom: 8px solid transparent
+
+.sides
+	position: absolute
+	top: 60%
+	@include size(30px,100%)
+	z-index: 4
+	&::before
+		@include pseudo
+		top: 35%
+		left: calc((100% - 20px)/2)
+		@include size(15px,20px)
+		background: $black
+		border-radius: 50% 50% 80% 80%
+	&::after
+		@include pseudo
+		top: 22px
+		left: calc((100% - 10px)/2)
+		@include size(10px,10px)
+		border-radius: 50%
+		border-bottom: 3px solid $black
+		border-left: 1px solid transparent
+		border-right: 1px solid transparent
+
+	.left
+		position: absolute
+		@extend %fluff-left
+		top: 10px
+		left: -5px
+		@include cross(transform, rotate(-20deg))
+		&::before
+			@include pseudo
+			top: -17px
+			left: 2px
+			@extend %fluff-left
+		&::after
+			@include pseudo
+			top: 0
+			left: 2px
+			@extend %fluff-left
+	
+	.right
+		position: absolute
+		@extend %fluff-right
+		top: 10px
+		right: -5px
+		@include cross(transform, rotate(20deg))
+		&::before
+			@include pseudo
+			top: -17px
+			right: 2px
+			@extend %fluff-right
+		&::after
+			@include pseudo
+			top: 0
+			right: 2px
+			@extend %fluff-right
+	
+%eyes
+	position: absolute
+	@include size(12px,12px)
+	background: $black
+	border-radius: 50%
+
+%inner-eye
+	@include pseudo
+	top: 1px
+	left: 1px
+	@include size(4px,4px)
+	background: #fff
+	border-radius: 50%
+
+.eyes	
+	position: absolute
+	top: 55%
+	@include size(30%,100%)
+	z-index: 4
+
+	.left
+		@extend %eyes
+		left: 30%
+		&::before
+			@extend %inner-eye
+	
+	.right
+		@extend %eyes
+		right: 30%
+		&::before
+			@extend %inner-eye
+	
+.ears
+	position: absolute
+	top: 11%
+	left: calc((100% - 48%)/2)
+	@include size(40px,48%)
+	background: $white
+	border: 5px solid $orange
+	border-radius: 20% 20% 0 0
+	z-index: 0
+
+%chest
+	@include size(20px,20px)
+	border-bottom: 3px solid $d-white
+	border-top: 3px solid transparent
+	border-left: 3px solid transparent
+	border-right: 3px solid transparent
+	border-radius: 50%
+
+.body
+	position: absolute
+	top: 42%
+	left: calc((100% - 35%)/2)
+	@include size(40%,35%)
+	background: $orange
+	border-radius: 50% 50% 20% 20%/50%
+	border-right: 2px solid $d-orange
+	z-index: 2
+	&::before
+		@include pseudo
+		top: 5%
+		left: 20%
+		@include size(80%,60%)
+		background: $white
+		border-radius: 50%
+	&::after
+		@include pseudo
+		@extend %chest
+		top: 2%
+		left: calc((100% - 26px)/2)
+		
+.chest
+	position: absolute
+	top: 20%
+	left: 30%
+	@extend %chest
+	&::before
+		@include pseudo
+		top: -9px
+		left: 15px
+		@extend %chest
+	&::after
+		@include pseudo
+		bottom: -19px
+		left: 6px
+		@extend %chest
+%legs
+	position: absolute
+	background: $black
+	@include size(100%,15px)
+	border-radius: 30% 30% 0 0
+
+%paws
+	@include pseudo
+	bottom: -10px
+	left: -2px
+	@include size(15px,20px)
+	background: $black
+	border-radius: 50%
+
+.legs
+	position: absolute
+	bottom: 18%
+	left: calc((100% - 15%)/2)
+	@include size(18%,15%)
+	z-index: 3
+
+	.left
+		@extend %legs
+		left: 0
+		&::before
+			@extend %paws
+		&::after
+			@extend %paws
+			bottom: -5px
+			left: -20px
+			
+	.right
+		@extend %legs
+		right: 0
+		&::before
+			@extend %paws
+		&::after
+			@extend %paws
+			bottom: -5px
+			left: 17px
+
+%tail
+	border-top: 12px solid $white
+	border-left: 15px solid transparent
+	border-right: 15px solid transparent
+	
+.tail
+	position: absolute
+	bottom: 20%
+	right: 0
+	@include size(50%,40%)
+	background: linear-gradient(45deg, $orange 70%, $white 70%)
+	border-radius: 100% 0 100%
+	z-index: 1
+
+	.tips
+		position: absolute
+		top: 26%
+		@include cross(transform, rotate(45deg))
+		@extend %tail
+		right: 22%
+		&::before
+			@include pseudo
+			top: -11px
+			right: -36px
+			@extend %tail
+		&::after
+			@include pseudo
+			top: -11px
+			left: -31px
+			@extend %tail
+
+.trunk
+	position: absolute
+	bottom: 5%
+	left: 25%
+	@include size(12%,50%)
+	background: $trunk
+	&::before
+		@include pseudo
+		top: -10px
+		@include size(20px,100%)
+		background: $white
+		border-radius: 50%
+	&::after
+		@include pseudo
+		top: 20px
+		left: -20px
+		@include size(20px,50px)
+		background: $trunk
+		border-radius: 100% 0
+	
+.roots
+	position: absolute
+	bottom: 10px
+	right: 50px
+	@include size(20px,50px)
+	background: $trunk
+	border-radius: 0 100%
+
+a, a:hover, a:visited, a:focus
+	text-decoration: none
+	color: $black	
+
+.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: $white
+	p
+		color: $white
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em

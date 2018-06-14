@@ -1,0 +1,422 @@
+/* COLORS */
+$bg-light: #D1F3FF
+$bg-dark: #BADEFF
+$blue: #3C59D8
+$cape: #CC3D3D
+$red: #E84E4E
+$a-red: #E85A5A
+$d-red: #D84545
+$gold: #FFDF2B
+$skin: #FFDBAC
+$d-skin: #F7CF9B
+$blonde: #FFEB70
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: linear-gradient(to top, $bg-light, $bg-dark)
+
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	@include size(350px,350px)
+	
+/* CLOUDS */
+%clouds
+	top: -50%
+	border-radius: 50%
+	background: #fff
+	@include size(55px,55px)
+	
+%pseudo-cloud-left
+	@include pseudo
+	@extend %clouds
+	@include size(80%,70%)
+	top: 15%
+	left: -40%
+
+%pseudo-cloud-right
+	@include pseudo
+	@extend %clouds
+	@include size(80%,70%)
+	top: 15%
+	right: -40%
+
+.cloud-0
+	position: absolute
+	@extend %clouds
+	left: 25%
+	animation: clouds 5s linear 0 infinite
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right
+	
+.cloud-1
+	position: absolute
+	@extend %clouds
+	right: 0%
+	animation: clouds 5s linear 1000ms infinite
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right
+		
+.cloud-2
+	position: absolute
+	@extend %clouds
+	left: 10%
+	animation: clouds 5s linear 1800ms infinite
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right
+	
+.cloud-3
+	position: absolute
+	@extend %clouds
+	right: 25%
+	animation: clouds 5s linear 2800ms infinite	
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right	
+
+.cloud-3
+	position: absolute
+	@extend %clouds
+	left: 0%
+	animation: clouds 5s linear 2500ms infinite	
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right		
+	
+.cloud-5
+	position: absolute
+	@extend %clouds
+	right: 10%
+	animation: clouds 5s linear 3000ms infinite	
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right	
+	
+.cloud-5
+	position: absolute
+	@extend %clouds
+	right: 15%
+	animation: clouds 5s linear 3500ms infinite	
+	&::before
+		@extend %pseudo-cloud-left
+	&::after
+		@extend %pseudo-cloud-right		
+	
+/* SUPERGIRL */	
+
+.supergirl
+	position: absolute
+	top: 10%
+	@include size(100%,100%)
+	animation: flying 2s linear 0s infinite
+
+/* CAPE */	
+.cape
+	position: absolute
+	top: 25%
+	left: calc((100% - 42%)/2)
+	@include size(35%,42%)
+	background: $cape
+	-webkit-clip-path: polygon(37% 0, 62% 0, 90% 70%, 95% 80%, 90% 100%, 10% 100%, 5% 80%, 10% 70%)
+
+
+/* BODY */	
+%hair
+	top: 5%
+	background: $blonde
+	border-radius: 50%
+
+.head
+	position: absolute
+	top: 12.5%
+	left: calc((100% - 10%)/2)
+	@include size(12%,10%)
+	background: $skin
+	border-radius: 50%
+	box-shadow: 0 -4px 0 0 $blonde, 5px 0 0 $blonde, -5px 0 0 $blonde, 8px 8px 0 $blonde, -8px 8px 0 $blonde, -10px 20px 0 0 $blonde, 10px 20px 0 0 $blonde
+	z-index: 0
+	&::before
+		@include pseudo
+		@include size(10px,25px)
+		@extend %hair
+		left: -10%
+		@include cross(transform, rotate(-40deg))
+	&::after
+		@include pseudo
+		@extend %hair
+		@include size(7px,25px)
+		right: -16%
+		@include cross(transform,rotate(40deg))			
+
+.neck
+	position: absolute
+	top: 24%
+	left: calc((100% - 20px)/2)
+	@include size(10px,20px)
+	background: $skin
+	z-index: 4
+	border-radius: 0 0 40% 40%
+	-webkit-clip-path: polygon(25% 0%, 75% 0%, 75% 35%, 100% 35%, 100% 100%, 0% 100%, 0% 35%, 25% 35%)
+
+/* UPPER BODY */
+
+%clips
+	top: 0%
+	border-top: 7px solid $cape
+	border-right: 10px solid transparent
+	border-left: 10px solid transparent
+
+.upperbody
+	position: absolute
+	top: 25%
+	left: calc((100% - 29%)/2)
+	@include size(20%,29%)
+	background: $blue
+	-webkit-clip-path: polygon(25% 0, 75% 0, 95% 35%, 95% 45%, 68% 90%, 32% 90%, 5% 45%, 5% 35%)
+	z-index: 1
+	&::before
+		@include pseudo
+		@extend %clips
+		left: 20%	
+	&::after
+		@include pseudo
+		@extend %clips
+		right: 20%
+
+/* HOUSE OF EL */
+.house-of-el
+	position: absolute
+	top: 30%
+	left: calc((100% - 9%)/2)
+	@include size(7%,9%)
+	background: $red
+	box-shadow: 1px 1px 0 -1px $red
+	-webkit-clip-path: polygon(20% 0%, 80% 0%, 95% 30%, 50% 80%, 5% 30%)
+	z-index: 7
+
+.house-of-el-copy
+	position: absolute
+	top: 2px
+	left: 4px
+	@include size(18px,23px)
+	-webkit-clip-path: polygon(20% 0%, 80% 0%, 95% 30%, 50% 80%, 5% 30%)
+
+%s-pseudo
+	@include pseudo
+	background: $gold
+
+.s
+	position: absolute
+	top: 29%
+	left: calc((100% - 9%)/2)
+	@include size(8%,9%)
+	border: 1px solid transparent
+	z-index: 8
+	.s1
+		position: absolute
+		@include size(5px,3px)
+		top: 4px
+		left: 5px
+		transform: rotate(30deg)
+		background: $gold
+		border-radius: 50% 0 0 50%
+		&::before
+			@include pseudo
+			@include size(5px,3px)
+			background: $red
+			right: -2px
+			border-radius: 50%
+		
+	.s2
+		position: absolute
+		top: 5px
+		left: 10px
+		@include size(4px,11px)
+		background: $gold
+		border-radius: 50% 50% 0 50%
+		&::before
+			@include pseudo
+			top: 1px
+			right: -4px
+			border-left: 2px solid $gold
+			border-top: 3px solid transparent
+			border-bottom: 2px solid transparent
+		&::after
+			@extend %s-pseudo
+			@include size(1px,3px)
+			right: -2px
+			top: 3px
+	
+	.s3
+		position: absolute
+		top: 12px
+		left: 9px
+		@include size(2px,5px)
+		background: $gold
+		border-radius: 0 0 0 40%
+		&::before
+			@extend %s-pseudo
+			@include size(2px,3px)
+			top: -4px
+			right: -10px
+			border-radius: 50%
+	
+	.s4
+		position: absolute
+		top: 12px
+		left: 10px
+		@include size(3px,9px)
+		background: $gold
+		border-radius: 50%
+		transform: rotate(10deg)
+		&::before
+			@include pseudo
+			bottom: -5px
+			left: 2px
+			border-top: 3px solid #FFDF2B
+			border-left: 3px solid transparent
+			border-right: 3px solid transparent
+			transform: rotate(-10deg)	
+
+/* ARMS */	
+%arm
+	position: absolute
+	top: 28%
+	@include size(50px,19px)
+	background: $cape
+	z-index: 5
+%hands
+	@include pseudo
+	top: 39%
+	@include size(13px,7px)
+	background: $skin
+	border-radius: 30%
+	z-index: 6
+.arms
+	&::before
+		@extend %hands
+		left: 43%
+		@include cross(transform, rotate(20deg))
+		box-shadow: 0 0 0 0 $blue
+	&::after
+		@extend %hands
+		right: 43%
+		@include cross(transform, rotate(-20deg))
+		box-shadow: 0 0 0 0 $blue
+	.left
+		@extend %arm
+		-webkit-clip-path: polygon(60% 10%, 70% 10%, 90% 15%, 85% 25%, 83% 30%, 100% 60%, 100% 70%, 90% 90%, 0% 45%, 0% 35%)
+		left: 40%
+	.right
+		@extend %arm
+		-webkit-clip-path: polygon(30% 10%, 40% 10%, 100% 35%, 100% 45%, 5% 90%, 0% 70%, 0% 60%, 17% 30%, 15% 25%, 10% 15%)
+		right: 40%
+
+/* SKIRT */	
+.skirt
+	position: absolute
+	bottom: 48%
+	left: calc((100% - 25%)/2)
+	@include size(15%,25%)
+	background: $red
+	-webkit-clip-path: polygon(28% 25%, 72% 25%, 100% 90%, 90% 100%, 10% 100%, 0 90%)
+	z-index: 2
+
+%belt
+	top: 3px
+	@include size(5px,22px)
+	background: $gold
+	transform-origin: top
+	z-index: 5
+
+.belt
+	position: absolute
+	top: 40%
+	left: calc((100% - 38px)/2)
+	@include size(6px,38px)
+	background: $gold
+	border-radius: 0 0 50% 50%
+	z-index: 5
+	&::before
+		@include pseudo
+		@extend %belt
+		@include cross(transform, rotate(-15deg))
+		left: 45%
+	&::after
+		@include pseudo
+		@extend %belt
+		@include cross(transform, rotate(15deg))
+		right: 45%
+
+	/* LEGS */
+%boots
+	@include pseudo
+	bottom: 0
+	background: $cape
+	@include size(60%,48%)
+	
+.legs	
+	position: absolute
+	bottom: 27%
+	left: calc((100% - 13%)/2)
+	@include size(25%, 13%)
+	background: -webkit-linear-gradient(left, $skin 48%, $d-skin 48%, $d-skin 52%, $skin 52%)
+	-webkit-clip-path: polygon(0 0, 100% 0, 68% 100%, 32% 100%)
+	border-radius: 0 0 50% 50%
+	&::before
+		@extend %boots
+	&::after
+		@extend %boots
+		right: 0
+	
+.feet
+	position: absolute
+	bottom: 23%
+	left: calc((100% - 17px)/2)
+	@include size(14px,17px)
+	background: $cape
+	border-radius: 0 0 50% 50%
+	
+/* ANIMATIONS */
+	
+@keyframes clouds
+	to
+		@include cross(transform, translate(10px, 1500%))
+	
+@keyframes flying
+	0%
+		@include cross(transform, translate(0))
+	50%
+		@include cross(transform, translate(8px, 1px))
+	100%
+		@include cross(transform, translate(0))

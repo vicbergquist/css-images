@@ -1,0 +1,41 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FFE2EF;
+}
+
+.charmander {
+  position: absolute;
+  top: 20%;
+  left: calc((100% - 80px)/2);
+  height: 5px;
+  width: 5px;
+  background: #333;
+  box-shadow: 50px 0 #333, 55px 0px #333, 60px 0 #333, 65px 0 #333, -5px 5px #333, 0px 5px #FF3D32, 5px 5px #333, 45px 5px #333, 50px 5px #FF8D14, 55px 5px #FF8D14, 60px 5px #FF8D14, 65px 5px #FF8D14, 70px 5px #333, -10px 10px #333, -5px 10px #FF3D32, 0px 10px #FF3D32, 0px 10px #333, 5px 10px #333, 40px 10px #333, 45px 10px #FF8D14, 50px 10px #FF8D14, 55px 10px #FF8D14, 60px 10px #FF8D14, 65px 10px #FF8D14, 70px 10px #FF8D14, 75px 10px #333, -10px 15px #333, -5px 15px #FF3D32, 0px 15px #FF3D32, 5px 15px #333, 40px 15px #333, 45px 15px #FF8D14, 50px 15px #FF8D14, 55px 15px #FF8D14, 60px 15px #FF8D14, 65px 15px #FF8D14, 70px 15px #FF8D14, 75px 15px #333, -15px 20px #333, -10px 20px #FF3D32, -5px 20px #FF3D32, 0px 20px #FF3D32, 5px 20px #FF3D32, 10px 20px #333, 35px 20px #333, 40px 20px #FF8D14, 45px 20px #FF8D14, 50px 20px #FF8D14, 55px 20px #FF8D14, 60px 20px #FF8D14, 65px 20px #FF8D14, 70px 20px #FF8D14, 75px 20px #FF8D14, 80px 20px #333, -15px 25px #333, -10px 25px #FF3D32, -5px 25px #FFEE32, 0px 25px #FF3D32, 5px 25px #FF3D32, 10px 25px #333, 35px 25px #333, 40px 25px #FF8D14, 45px 25px #FF8D14, 50px 25px #FF8D14, 55px 25px #333, 60px 25px #fff, 65px 25px #FF8D14, 70px 25px #FF8D14, 75px 25px #FF8D14, 80px 25px #FF8D14, 85px 25px #333, -15px 30px #333, -10px 30px #FF3D32, -5px 30px #FFEE32, 0px 30px #FFEE32, 5px 30px #FF3D32, 10px 30px #333, 30px 30px #333, 35px 30px #FF8D14, 40px 30px #FF8D14, 45px 30px #FF8D14, 50px 30px #FF8D14, 55px 30px #333, 60px 30px #333, 65px 30px #FF8D14, 70px 30px #FF8D14, 75px 30px #FF8D14, 80px 30px #FF8D14, 85px 30px #333, -10px 35px #333, -5px 35px #333, 0px 35px #FFEE32, 5px 35px #333, 30px 35px #333, 35px 35px #FF8D14, 40px 35px #FF8D14, 45px 35px #FF8D14, 50px 35px #FF8D14, 55px 35px #333, 60px 35px #333, 65px 35px #FF8D14, 70px 35px #FF8D14, 75px 35px #FF8D14, 80px 35px #FF8D14, 85px 35px #333, -5px 40px #333, 0px 40px #FF8D14, 5px 40px #333, 25px 40px #333, 30px 40px #FF8D14, 35px 40px #FF8D14, 40px 40px #FF8D14, 45px 40px #FF8D14, 50px 40px #FF8D14, 55px 40px #FF8D14, 60px 40px #FF8D14, 65px 40px #FF8D14, 70px 40px #FF8D14, 75px 40px #FF8D14, 80px 40px #333, -5px 45px #333, 0px 45px #FF8D14, 5px 45px #FF8D14, 10px 45px #333, 20px 45px #333, 25px 45px #FF8D14, 30px 45px #FF8D14, 35px 45px #FF8D14, 40px 45px #FF8D14, 45px 45px #FF8D14, 50px 45px #FF8D14, 55px 45px #FF8D14, 60px 45px #FF8D14, 65px 45px #FF8D14, 70px 45px #333, 75px 45px #333, 0px 50px #333, 5px 50px #FF8D14, 10px 50px #FF8D14, 15px 50px #333, 20px 50px #333, 25px 50px #FF8D14, 30px 50px #FF8D14, 35px 50px #FF8D14, 40px 50px #333, 45px 50px #FF8D14, 50px 50px #FF8D14, 55px 50px #333, 60px 50px #333, 65px 50px #333, 0px 55px #333, 5px 55px #FF8D14, 10px 55px #FF8D14, 15px 55px #333, 20px 55px #FF8D14, 25px 55px #FF8D14, 30px 55px #FF8D14, 35px 55px #FF8D14, 40px 55px #FF8D14, 45px 55px #333, 50px 55px #FFEE32, 55px 55px #FFEE32, 60px 55px #333, 5px 60px #333, 10px 60px #FF8D14, 15px 60px #333, 20px 60px #FF8D14, 25px 60px #FF8D14, 30px 60px #FF8D14, 35px 60px #333, 40px 60px #333, 45px 60px #FFEE32, 50px 60px #FFEE32, 55px 60px #FFEE32, 60px 60px #333, 10px 65px #333, 15px 65px #333, 20px 65px #FF8D14, 25px 65px #FF8D14, 30px 65px #FF8D14, 35px 65px #FF8D14, 40px 65px #FFEE32, 45px 65px #FFEE32, 50px 65px #FFEE32, 55px 65px #333, 60px 65px #fff, 65px 65px #333, 15px 70px #333, 20px 70px #333, 25px 70px #FF8D14, 30px 70px #FF8D14, 35px 70px #FF8D14, 40px 70px #FFEE32, 45px 70px #FFEE32, 50px 70px #333, 55px 70px #333, 60px 70px #333, 20px 75px #333, 25px 75px #333, 30px 75px #FF8D14, 35px 75px #333, 40px 75px #333, 45px 75px #333, 20px 80px #333, 25px 80px #fff, 30px 80px #FF8D14, 35px 80px #fff, 40px 80px #333, 20px 85px #333, 25px 85px #333, 30px 85px #333, 35px 85px #333;
+}
+
+.watchme {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: center;
+}
+.watchme span {
+  background: #fff;
+}
+.watchme p {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+.watchme .fa {
+  vertical-align: middle;
+  color: #ff0000;
+  font-size: 3em;
+}

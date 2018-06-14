@@ -1,0 +1,169 @@
+/* COLORS */
+$bg: #D4F7D4
+$black: #3F3F3F
+$grey: #666666
+$green: #81EF6E
+$light: #8BF977
+$dark: #78DD66
+$darker: #71D160
+$horns: #EDE0A3
+$shadow: #7DE86A
+
+$eye: #0FC192
+$e-darker: #0DAD82
+
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin transform ($rotate)
+	-webkit-transform: $rotate
+	-ms-transform: $rotate
+	transform: $rotate
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 18%
+	margin: auto
+	height: 350px
+	width: 350px
+
+%horns
+	top: 5%
+	background: $horns
+	height: 15%
+	width: 15%
+
+.head
+	position: absolute
+	left: 22.5%
+	height: 55%
+	width: 55%
+	background: $green
+	border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%
+	z-index: 0
+	border-left: 5px solid $shadow
+	border-right: 5px solid $shadow
+	&::before
+		@include pseudo
+		@extend %horns
+		left: 5%
+		border-radius: 90% 10% 20% 20%
+		@include transform(rotate(-45deg))
+		
+	&::after
+		@include pseudo
+		@extend %horns
+		right: 5%
+		border-radius: 10% 90% 20% 20%
+		@include transform(rotate(45deg))
+
+.eye
+	position: absolute
+	top: 3%
+	left: 36%
+	height: 30%
+	width: 28%
+	background: #fff
+	border-radius: 50%
+	border-top: 10px solid $dark
+	border-bottom: 2px solid $dark
+	z-index: 1
+.iris
+	position: absolute
+	top: 20%
+	left: 23%
+	height: 56%
+	width: 54%
+	background: $eye
+	border-radius: 50%
+	border: 1px solid $e-darker
+	.pupil
+		position: absolute
+		top: 20%
+		left: 20%
+		height: 60%
+		width: 60%
+		background: $black
+		border-radius: 50%
+	
+.mouth
+	position: absolute
+	bottom: 56%
+	left: 25%
+	height: 50%
+	width: 50%
+	border-top: 3px solid transparent
+	border-left: 3px solid transparent
+	border-right: 3px solid transparent
+	border-bottom: 2px solid $black
+	border-radius: 50%
+
+/* ARMS */
+%arms
+	position: absolute
+	top: 44%
+	height: 5%
+	width: 40%
+	background: $green
+	border-radius: 1em
+
+%hands
+	height: 120%
+	width: 20%
+	background: $green
+	border-radius: 1em	
+
+.arms
+	.left
+		@extend %arms
+		left: -5%
+		transform-origin: right
+		@include transform(rotate(45deg))
+	
+	.right
+		@extend %arms	
+		right: -5%
+		transform-origin: left
+		@include transform(rotate(-45deg))
+		
+%legs
+	position: absolute
+	bottom: 25%
+	height: 25%
+	width: 6%
+	background: $green
+	z-index: 1
+
+%feet
+	bottom: 0
+	height: 15px
+	width: 30px
+	background: $green
+
+.legs
+	.left
+		@extend %legs
+		left: 35%
+		&::after
+			@include pseudo
+			@extend %feet
+			left: -25px
+			border-radius: 50% 10% 0 0 / 100%
+	.right
+		@extend %legs
+		right: 35%
+		&::after
+			@include pseudo
+			@extend %feet
+			right: -25px
+			border-radius: 10% 50% 0 0 / 100% 

@@ -1,0 +1,222 @@
+/* COLORS */
+$l-blue: #0B0F2B
+$d-blue: #090D23
+$black: #333
+$beige: #F9DA90
+$d-beige: #DDBF7A
+$brown: #CC9E61
+$yellow: #EFE894
+$grey: #BFBFBF
+$d-grey: #9E9E9E
+$yellow: #EFE894
+
+/* MIXINS */
+@mixin pseudo ($position: absolute, $display: block, $content: '')
+	position: $position
+	display: $display
+	content: ''
+
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+@mixin cross($property, $val)
+	-webkit-#{$property}: $val
+	-moz-#{$property}: $val
+	-ms-#{$property}: $val
+	#{$property}: $val
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: linear-gradient(135deg, $l-blue, $d-blue)
+	
+.saturn
+	position: relative
+	top: 20%
+	margin: auto
+	@include size(100px,100px)
+	background: linear-gradient(to top, $d-beige 20%, $beige 25%, $beige 30%, $d-beige 35%, $d-beige 40%, $beige 50%, $beige 65%, $d-beige 70%, $d-beige 80%, $beige 85%)
+	border-radius: 50%
+	z-index: 2
+	//transform-style: preserve-3d
+	@include cross(transform, rotate(15deg))
+	box-shadow: inset -15px 0 5px $d-beige, 0px 0px 4px $beige
+
+.ring
+	position: absolute
+	top: 17%
+	left: calc((100% - 190px)/2)
+	border: 20px solid $brown
+	@include size(150px,190px)
+	border-radius: 50%
+	@include cross(transform,rotate(15deg) rotateX(75deg))
+	z-index: 1
+	box-shadow: 0 0 8px 5px $brown
+
+%eyes
+	position: absolute
+	top: 30%
+	@include size(12px,10px)
+	background: $black
+	border-radius: 50%
+
+%inner-eye
+	@include pseudo
+	top: 2px
+	left: 2px
+	@include size(3px,3px)
+	background: #fff
+	border-radius: 50%
+
+.eye-left
+	@extend %eyes
+	left: 35%
+	&::before
+		@extend %inner-eye
+	&::after
+		@extend %inner-eye
+		top: 6px
+		left: 6px
+		@include size(1px,1px)
+	
+.eye-right
+	@extend %eyes
+	right: 35%
+	&::before
+		@extend %inner-eye
+	&::after
+		@extend %inner-eye
+		top: 6px
+		left: 6px
+		@include size(1px,1px)
+	
+.mouth
+	position: absolute
+	top: 32%
+	left: calc((100% - 15px)/2)
+	@include size(20px,15px)
+	border-top: 3px solid transparent
+	border-bottom: 3px solid $black
+	border-left: 1px solid transparent
+	border-right: 1px solid transparent
+	border-radius: 50%
+
+%stars
+	background: $yellow
+	border-radius: 50%
+	box-shadow: 0 0 5px 1px $yellow
+	@include cross(animation, glow 5s linear infinite 0s)
+	
+.stars
+	position: absolute
+	top: 20%
+	left: calc((100% - 300px)/2)
+	@include size(200px,300px)
+	z-index: 0
+
+	.top
+		position: absolute
+		top: -10px
+		left: 10%
+		@include size(3px,3px)
+		@extend %stars
+		&::before
+			@include pseudo
+			top: -25px
+			left: 150px
+			@extend %stars
+			@include size(4px,4px)
+		&::after
+			@include pseudo
+			top: -15px
+			left: 60px
+			@extend %stars
+			@include size(3px,3px)
+		
+	.left
+		position: absolute
+		top: 0%
+		left: 25%
+		@include size(4px,4px)
+		@extend %stars
+		&::before
+			@include pseudo
+			top: 53px
+			left: -12px
+			@extend %stars
+			@include size(3px,3px)
+		&::after
+			@include pseudo
+			top: -20px
+			left: 60px
+			@extend %stars
+			@include size(3px,3px)
+		
+	.bottom
+		position: absolute
+		bottom: 50%
+		right: 28%
+		@include size(3px,3px)
+		@extend %stars
+		&::before
+			@include pseudo
+			@include size(4px,4px)
+			@extend %stars
+			bottom: 35px
+			right: -10px
+		&::after
+			@include pseudo
+			@include size(3px,3px)
+			@extend %stars
+			top: 20px
+			right: 60px
+	
+	.right
+		position: absolute
+		top: 5%
+		right: 5%
+		@include size(4px,4px)
+		@extend %stars	
+		&::before
+			@include pseudo
+			@include size(3px,3px)
+			@extend %stars
+			top: 10px
+			right: 50px
+	
+
+@-webkit-keyframes glow
+	0%
+		opacity: 1
+	50%
+		opacity: 0.6
+	100%
+		opacity: 1
+
+@keyframes glow
+	0%
+		opacity: 1
+	50%
+		opacity: 0.6
+	100%
+		opacity: 1
+		
+		
+//.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em	

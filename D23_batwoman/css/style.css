@@ -1,0 +1,286 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FFEDE0;
+}
+
+.canvas {
+  position: relative;
+  top: 10%;
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+
+/* MASK */
+.mask {
+  position: absolute;
+  top: 20%;
+  left: calc((100% - 41%)/2);
+  height: 40%;
+  width: 41%;
+  background: #232323;
+  border-radius: 0 0 40% 40%;
+  -webkit-clip-path: polygon(12% 5%, 20% 30%, 50% 50%, 80% 30%, 88% 5%, 100% 80%, 85% 80%, 95% 70%, 50% 85%, 5% 70%, 15% 80%, 0% 80%);
+  z-index: 3;
+}
+
+/* HAIR */
+.hair {
+  position: absolute;
+  top: 25%;
+  left: calc((100% - 160px)/2);
+  height: 220px;
+  width: 160px;
+  background: #E03C3C;
+  border-radius: 50% 30% 50% 50%;
+  z-index: 0;
+}
+.hair::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 60%;
+  width: 50%;
+  background: #E03C3C;
+  bottom: 1%;
+  left: -20%;
+  border-radius: 90% 0% 40% 20%;
+}
+.hair::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -5%;
+  height: 70%;
+  width: 60%;
+  background: #E03C3C;
+  border-radius: 20% 80%;
+  right: 0;
+}
+
+.strand {
+  position: absolute;
+  top: -5%;
+  height: 70%;
+  width: 60%;
+  background: #E03C3C;
+  border-radius: 80% 20%;
+  z-index: 5;
+}
+
+/* FACE */
+.face {
+  position: absolute;
+  top: 33%;
+  left: calc((100% - 115px)/2);
+  height: 90px;
+  width: 115px;
+  background: #FFEDE0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+  border-radius: 40% 40% 50% 50%;
+  z-index: 1;
+  border-bottom: 1px solid #EFD7C6;
+}
+.face::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: calc((100% - 40px)/2);
+  border-top: 6px solid #E03C3C;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+/* EYES */
+.eyes::before, .eyes::after {
+  top: 46%;
+  height: 12px;
+  width: 25px;
+  background: #FFEDE0;
+  z-index: 4;
+  border-radius: 0 0 50% 50%/0 0 100% 100%;
+}
+
+.eyes::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: 39%;
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+.eyes::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: 39%;
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+/* MOUTH */
+.mouth {
+  position: absolute;
+  bottom: 43%;
+  left: calc((100% - 6%)/2);
+  height: 1px;
+  width: 6%;
+  background: #232323;
+  z-index: 2;
+}
+.mouth::before {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 5px;
+  width: 100%;
+  background: #E03C3C;
+  top: -5px;
+  border-radius: 50% 50% 0 0/100%;
+}
+.mouth::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 4px;
+  width: 100%;
+  background: #E03C3C;
+  bottom: -4px;
+  border-radius: 0 0 50% 50%/100%;
+}
+
+/* BODY */
+.upperbody {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  height: 35%;
+  width: 50%;
+  background: #232323;
+  border-radius: 30% 30% 30% 30%;
+  z-index: 0;
+}
+.upperbody::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -12px;
+  left: calc((100% - 30px)/2);
+  height: 14px;
+  width: 30px;
+  background: #FFEDE0;
+}
+
+/* BAT */
+.bat .body, .bat .tail {
+  position: absolute;
+  background: #E03C3C;
+  z-index: 4;
+}
+
+.bat .body::before, .bat .body::after {
+  height: 40px;
+  width: 35px;
+  border-radius: 50%;
+  background: #232323;
+  top: -1px;
+}
+
+.bat .tail::before, .bat .tail::after {
+  height: 58px;
+  width: 60px;
+  border-radius: 50%;
+  background: #232323;
+  top: -7px;
+}
+
+.bat .head::before, .bat .head::after {
+  top: -3px;
+  border-bottom: 10px solid #E03C3C;
+}
+
+.bat::before {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: 24%;
+  left: calc((100% - 50px)/2);
+  border-top: 17px solid #232323;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  z-index: 5;
+}
+.bat .head {
+  position: absolute;
+  background: #E03C3C;
+  z-index: 5;
+  height: 15px;
+  width: 17px;
+  border-radius: 50% 50% 0 0;
+  left: calc((100% - 17px)/2);
+  bottom: 23%;
+}
+.bat .head::before {
+  position: absolute;
+  display: block;
+  content: "";
+  border-right: 4px solid transparent;
+}
+.bat .head::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: 0;
+  border-left: 4px solid transparent;
+}
+.bat .body {
+  bottom: 17%;
+  left: 30%;
+  height: 12%;
+  width: 40%;
+}
+.bat .body::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: -15px;
+}
+.bat .body::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: -15px;
+}
+.bat .tail {
+  bottom: 7%;
+  left: 40%;
+  height: 10%;
+  width: 20%;
+}
+.bat .tail::before {
+  position: absolute;
+  display: block;
+  content: "";
+  left: -29px;
+}
+.bat .tail::after {
+  position: absolute;
+  display: block;
+  content: "";
+  right: -29px;
+}

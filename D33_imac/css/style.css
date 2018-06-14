@@ -1,0 +1,131 @@
+/* COLORS */
+/* MIXINS */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #FF7F7F;
+}
+
+.imac {
+  position: relative;
+  top: 10%;
+  margin: auto;
+  height: 350px;
+  width: 350px;
+}
+
+.screen {
+  position: absolute;
+  top: 10%;
+  left: calc((100% - 95%)/2);
+  height: 52%;
+  width: 95%;
+  background: linear-gradient(45deg, #91C2FF 75%, #9EC9FF 75%);
+  border: 13px solid #2c2e2d;
+  border-radius: 10px 10px 0 0;
+  z-index: 2;
+}
+.screen::before {
+  position: absolute;
+  display: block;
+  content: "";
+  top: -8px;
+  left: calc((100% - 3px)/2);
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background: #c6c6c6;
+  opacity: 0.3;
+}
+.screen:after {
+  position: absolute;
+  display: block;
+  content: "";
+  bottom: -47px;
+  left: -13px;
+  height: 8px;
+  width: 100%;
+  background: #e0e2e2;
+  border: 13px solid #e0e2e2;
+  border-radius: 0 0 10px 10px;
+}
+
+.foot {
+  position: absolute;
+  bottom: 17%;
+  left: calc((100% - 21%)/2);
+  height: 12%;
+  width: 21%;
+  background: linear-gradient(10deg, #e0e2e2 75%, #c6c6c6 75%);
+  z-index: 1;
+  -webkit-clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.bottom {
+  position: absolute;
+  bottom: 16%;
+  left: calc((100% - 25%)/2);
+  height: 8px;
+  width: 25%;
+  background: #c6c6c6;
+  border-radius: 2px 2px 0 0;
+  z-index: 3;
+}
+
+.heart::before, .heart::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 15px;
+  width: 9px;
+  border-radius: 25px 25px 0 0;
+  background: #2c2e2d;
+}
+
+.heart {
+  position: absolute;
+  bottom: -38%;
+  left: calc((100% - 25%)/2);
+  height: 25%;
+  width: 25%;
+  z-index: 4;
+}
+.heart::before {
+  left: 41%;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.heart::after {
+  right: 41%;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.watchme {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  text-align: center;
+}
+.watchme span {
+  background: #fff;
+}
+.watchme p {
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+.watchme .fa {
+  width: 30%;
+  vertical-align: middle;
+  color: #ff0000;
+  font-size: 3em;
+}

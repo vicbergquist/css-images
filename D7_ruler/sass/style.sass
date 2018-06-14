@@ -1,0 +1,74 @@
+$bg: #698996
+$pink: #EBBAB9
+$green: #407076
+$yellow: #E0C270
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	margin: auto
+	top: 10%
+	height: 300px
+	width: 300px
+	background: $bg
+
+.triangle
+	position: absolute
+	top: 5%
+	left: -10%
+	border-bottom: 300px solid $pink
+	border-right: 300px solid transparent
+
+.triangle::before
+	position: absolute
+	top: 142px
+	left: 60px
+	content: ''
+	border-bottom: 90px solid $bg
+	border-right: 90px solid transparent
+
+%lines
+	position: absolute
+	list-style-type: none
+	padding: 0
+	margin: 0
+
+.triangle-small
+	position: absolute
+	top: 15%
+	right: -10%
+	border-bottom: 300px solid $yellow
+	border-right: 300px solid transparent
+	transform: scale(-1)
+
+	&::before
+		position: absolute
+		top: 142px
+		left: 60px
+		content: ''
+		border-bottom: 90px solid $bg
+		border-right: 90px solid transparent
+	
+.triangle, .triangle-small
+	ul
+		@extend %lines
+		li
+			width: 10px
+			margin-bottom: 6px
+			border-bottom: 1px solid #fff
+		li:nth-child(1)
+			margin-top: 30px
+		li:nth-child(5n)
+			width: 16px
+
+	.bottom
+		transform: rotate(-90deg)
+		margin-top: 154px
+		margin-left: 125px

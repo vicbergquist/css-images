@@ -1,0 +1,431 @@
+// FONT
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:800')
+
+// COLOURS
+$bg: #EADACE
+$brown: #5F4335
+$darkbrown: #573D31
+$black: #353535
+$light-black: #474747
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+	font-family: 'Open Sans', sans-serif
+	font-weight: 900
+	font-size: 18px
+
+.canvas
+	position: relative
+	top: 10%
+	margin: auto
+	height: 400px
+	width: 450px
+	background: $bg
+
+/* HEAD */
+%head
+	background: $brown
+	margin: auto
+	border-radius: 50% 50% 10% 10%
+
+.head
+	@extend %head
+	position: relative
+	top: 15%
+	height: 27%
+	width: 25%
+	z-index: 2
+
+.head-copy
+	@extend %head
+	position: absolute
+	margin: auto
+	height: 100%
+	width: 100%
+	z-index: 3
+	border-left: 2px solid $darkbrown
+
+/* EARS */
+.ears
+	%ears
+		position: absolute
+		top: -5%
+		height: 30%
+		width: 30%
+		background: $brown
+		border-radius: 50%
+		z-index: 2
+
+	.left
+		@extend %ears
+		left: 0
+
+	.right
+		@extend %ears
+		right: 0
+
+	.inner
+		position: absolute
+		top: 0
+		left: 25%
+		top: 20%
+		height: 50%
+		width: 50%
+		background: $bg
+		border-radius: 50%
+
+/* FACE */
+.face
+	position: absolute
+	left: 45%
+	top: 20%
+	height: 10%
+	width: 10%
+
+/* EYES */
+%eyes
+	position: absolute
+	top: 48%
+	height: 25%
+	width: 25%
+	border-radius: 50%
+	background: $black
+	z-index: 3
+
+.eye-left
+	@extend %eyes
+	left: 14%
+
+.eye-right
+	@extend %eyes
+	right: 14%
+
+.eyeball
+	position: absolute
+	top: 15%
+	left: 25%
+	height: 23%
+	width: 20%
+	background: #fff
+	border-radius: 50%
+
+/* MOUTH */
+.mouth
+	position: absolute
+	top: 75%
+	left: 0
+	height: 55%
+	width: 100%
+	background: $bg
+	z-index: 3
+	border-radius: 50%
+
+%outlines
+	position: absolute
+	bottom: -3%
+	width: 20%
+	-webkit-transform: rotate(5deg)
+	transform: rotate(5deg)
+	border-bottom: 3px solid $black
+	z-index: 3
+
+.mouth-outline
+	@extend %outlines
+	left: 30%
+
+.mouth-outline-copy
+	@extend %outlines
+	right: 30%
+	transform: rotate(-5deg)
+
+.nose
+	position: absolute
+	top: -3%
+	left: 25%
+	height: 40%
+	width: 50%
+	background: $black
+	border-radius: 50%
+
+.nose-line
+	position: relative
+	margin: auto
+	height: 260%
+	width: 10%
+	background: $black
+
+/* TEETH */
+.teeth
+	position: absolute
+	bottom: -47%
+	left: 37.5%
+	background: #fff
+	height: 15%
+	width: 25%
+	border-radius: 10% 10% 50% 50%
+	z-index: 6
+
+.teeth-space
+	position: relative
+	margin: auto
+	height: 100%
+	width: 10%
+	background: $black
+
+/* WHISKERS */
+
+%whisker
+	position: absolute
+	content: ''
+	height: 0
+	width: 0
+	border-bottom: 1px solid transparent
+	border-right: 25px solid $bg
+	border-top: 1px solid transparent
+
+.whiskers
+	position: absolute
+	bottom: -10%
+	height: 10%
+	width: 90%
+	z-index: 5
+
+	.left
+		@extend %whisker
+		left: -70%
+
+		&::before
+			@extend %whisker
+			-webkit-transform: rotateZ(15deg) translateY(-10px) translateX(-2px)
+
+		&::after
+			@extend %whisker
+			-webkit-transform: rotateZ(-32deg) translateY(10px) translateX(-4px)
+
+	.right
+		@extend %whisker
+		right: -85%
+		transform: rotateY(180deg)
+
+		&::before
+			@extend %whisker
+			-webkit-transform: rotateZ(15deg) translateY(-10px) translateX(-2px)
+
+		&::after
+			@extend %whisker
+			-webkit-transform: rotateZ(-32deg) translateY(10px) translateX(-4px)
+
+/* BODY */
+.body
+	position: relative
+	top: 1%
+	margin: auto
+	height: 37%
+	width: 35%
+	background: $brown
+	z-index: 2
+	border-radius: 50% 50% 40% 40%
+	border-left: 2px solid $darkbrown
+
+/* HANDS */
+.hands
+	%hands
+		position: absolute
+		bottom: 33%
+		height: 25%
+		width: 24%
+		background: $brown
+		border-radius: 60% 60% 10% 10% 
+		border-top: 2px solid $darkbrown
+		border-left: 2px solid $darkbrown
+		border-right: 2px solid $darkbrown
+		z-index: 34
+	
+	.left
+		@extend %hands
+		left: 18%
+		-webkit-transform: rotate(-180deg)
+	
+	.right
+		@extend %hands
+		top: 30%
+		right: 0
+		-webkit-transform: rotate(90deg)
+	
+.hand
+	position: absolute
+	top: 39%
+	right: 31%
+	height: 10%
+	width: 5%
+	background: $brown
+	border-radius: 40%
+	border: 2px solid $darkbrown
+	z-index: 6
+
+/* STOMACH */
+.stomach
+	position: absolute
+	bottom: 0
+	left: 20%
+	height: 60%
+	width: 60%
+	background: $bg
+	border-radius: 50%
+	z-index: 4
+	border: 5px solid $brown
+
+/* FEET */
+.feet
+	%feet
+		position: absolute
+		bottom: -3%
+		height: 15%
+		width: 30%
+		background: $brown
+		border: 2px solid $darkbrown
+		border-radius: 60% 60% 50% 50% 
+		z-index: 4
+
+	.left
+		@extend %feet
+		left: 5%
+	
+
+	.right
+		@extend %feet
+		right: 5%
+
+/* TAIL */
+.tail
+	position: absolute
+	top: 20%
+	left: 22%
+	background: $darkbrown
+	height: 45%
+	width: 25%
+	z-index: 1
+	border-radius: 60% 40% 0 60% 
+	-webkit-transform: rotate(-27deg)
+%lines
+	position: absolute
+	bottom: 0
+	background: $brown
+	width: 2px
+
+.line-1
+	@extend %lines
+	left: 40%
+	height: 99%
+
+.line-2
+	@extend %lines
+	bottom: 5%
+	left: 20%
+	height: 84%
+
+.line-3
+	@extend %lines
+	bottom: 5%
+	left: 60%
+	height: 95%
+
+.line-4
+	@extend %lines
+	bottom: 5%
+	right: 20%
+	height: 91%
+
+.line-5
+	@extend %lines
+	bottom: -25%
+	right: 19%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-6
+	@extend %lines
+	bottom: -15%
+	right: 25%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-7
+	@extend %lines
+	bottom: -5%
+	right: 29%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-8
+	@extend %lines
+	bottom: 5%
+	right: 32%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-9
+	@extend %lines
+	bottom: 15%
+	right: 32%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-10
+	@extend %lines
+	bottom: 25%
+	right: 30%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-11
+	@extend %lines
+	bottom: 35%
+	right: 25%
+	height: 80%
+	transform: rotate(90deg)
+
+.line-12
+	@extend %lines
+	top: -8%
+	right: 45%
+	height: 45%
+	transform: rotate(90deg)
+
+.line-13
+	@extend %lines
+	top: -10%
+	right: 40%
+	height: 30%
+	transform: rotate(90deg)
+
+.sign
+	position: absolute
+	top: 2%
+	left: 50%
+	width: 30%
+	padding-top: 10px
+	padding-bottom: 15px
+	color: $bg
+	background: $black
+	border-radius: 5px
+	z-index: 3
+	
+	p
+		margin: 0
+		text-align: center
+		letter-spacing: 2px
+	
+	.sign-pinne
+		position: absolute
+		left: 47%
+		height: 310%
+		width: 7%
+		background: $black
+		border-radius: 0 0 10% 10% 
+		z-index: 6

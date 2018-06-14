@@ -1,0 +1,45 @@
+/* COLORS */
+$bg: #FFE2EF
+$black : #333
+$red: #FF3D32
+$blue: #84CAF9
+$l-green: #5DD642
+$d-green: #45912E
+
+/* MIXINS */
+@mixin size($height, $width)
+	height: $height
+	width: $width
+
+*
+	box-sizing: border-box
+
+body, html
+	@include size(100%, 100%)
+	background: $bg
+
+.bulbasaur
+	position: absolute
+	top: 20%
+	left: calc((100% - 50px)/2)
+	@include size(5px,5px)
+	background: $black
+	box-shadow: /* Line 1 */5px 0 $black, 10px 0 $black,/* Line 2 */-5px 5px $black,0px 5px $d-green, 5px 5px $d-green, 10px 5px $d-green, 15px 5px $black,/* Line 3 */-5px 10px $black, 0px 10px $l-green, 5px 10px $l-green, 10px 10px $l-green, 15px 10px $black, 20px 10px $black, 25px 10px $black,/* Line 4 */-15px 15px $black, -10px 15px $black, -5px 15px $l-green, 0px 15px $black, 5px 15px $l-green, 10px 15px $black, 15px 15px $l-green, 20px 15px $black, 25px 15px $l-green, 30px 15px $black, 35px 15px $black,/* Line 5 */-20px 20px $black, -15px 20px $l-green, -10px 20px $l-green, -5px 20px $l-green, 0px 20px $black, 5px 20px $l-green, 10px 20px $black, 15px 20px $l-green, 20px 20px $l-green, 25px 20px $black, 30px 20px $l-green, 35px 20px $l-green, 40px 20px $black, 55px 20px $black,/* Line 6 */-25px 25px $black, -20px 25px $l-green, -15px 25px $l-green, -10px 25px $l-green, -5px 25px $black, 0px 25px $l-green, 5px 25px $l-green, 10px 25px $black, 15px 25px $l-green, 20px 25px $l-green, 25px 25px $l-green, 30px 25px $black, 35px 25px $l-green, 40px 25px $black, 45px 25px $black, 50px 25px $black, 55px 25px $blue, 60px 25px $black,/* Line 7 */-25px 30px $black, -20px 30px $l-green, -15px 30px $l-green, -10px 30px $black, -5px 30px $l-green, 0px 30px $l-green, 5px 30px $l-green, 10px 30px $l-green, 15px 30px $black, 20px 30px $l-green, 25px 30px $l-green, 30px 30px $black, 35px 30px $black, 40px 30px $blue, 45px 30px $blue, 50px 30px $blue, 55px 30px $blue, 60px 30px $black,/* Line 8 */-25px 35px $black, -20px 35px $l-green, -15px 35px $l-green, -10px 35px $black, -5px 35px $l-green, 0px 35px $l-green, 5px 35px $l-green, 10px 35px $l-green, 15px 35px $black, 20px 35px $l-green, 25px 35px $black, 30px 35px $blue, 35px 35px $blue, 40px 35px $blue, 45px 35px $blue, 50px 35px $blue, 55px 35px $blue, 60px 35px $black,/* Line 9 */-20px 40px $black, -15px 40px $l-green, -10px 40px $black, -5px 40px $l-green, 0px 40px $l-green, 5px 40px $l-green, 10px 40px $black, 15px 40px $black, 20px 40px $black, 25px 40px $blue, 30px 40px $blue, 35px 40px $blue, 40px 40px $blue, 45px 40px $blue, 50px 40px $blue, 55px 40px $blue, 60px 40px $blue, 65px 40px $black,/* Line 10 */-25px 45px $black, -20px 45px $blue, -15px 45px $black, -10px 45px $black, -5px 45px $black, 0px 45px $l-green, 5px 45px $l-green, 10px 45px $black, 15px 45px $blue, 20px 45px $blue, 25px 45px $blue, 30px 45px $blue, 35px 45px $blue, 40px 45px $blue, 45px 45px $blue, 50px 45px $blue, 55px 45px $blue, 60px 45px $blue, 65px 45px $black, 70px 45px $black,/* Line 11 */-25px 50px $black, -20px 50px $blue, -15px 50px $blue, -10px 50px $blue, -5px 50px $black, 0px 50px $black, 5px 50px $black, 10px 50px $blue, 15px 50px $black, 20px 50px $blue, 25px 50px $blue, 30px 50px $blue, 35px 50px $blue, 40px 50px $blue, 45px 50px $blue, 50px 50px $blue, 55px 50px $blue, 60px 50px $blue, 65px 50px $black, 70px 50px $black,/* Line 12 */-25px 55px $black, -20px 55px #fff, -15px 55px $blue, -10px 55px $black, -5px 55px $blue, 0px 55px $blue, 5px 55px $blue, 10px 55px $blue, 15px 55px $blue, 20px 55px $blue, 25px 55px $blue, 30px 55px $black, 35px 55px $black, 40px 55px $blue, 45px 55px $blue, 50px 55px $blue, 55px 55px $blue, 60px 55px $blue, 65px 55px $blue, 70px 55px $black,/* Line 13 */-20px 60px $black, -15px 60px $black, -10px 60px $black, -5px 60px $blue, 0px 60px $black, 5px 60px $blue, 10px 60px $black, 15px 60px $blue, 20px 60px $blue, 25px 60px $blue, 30px 60px #fff, 35px 60px $red, 40px 60px $black, 45px 60px $blue, 50px 60px $blue, 55px 60px $blue, 60px 60px $blue, 65px 60px $blue, 70px 60px $black,/* Line 14 */-5px 65px $black, 0px 65px $blue, 5px 65px $blue, 10px 65px $blue, 15px 65px $black, 20px 65px $blue, 25px 65px $blue, 30px 65px #fff, 35px 65px $red, 40px 65px $black, 45px 65px $blue, 50px 65px $blue, 55px 65px $blue, 60px 65px $blue, 65px 65px $black,/* Line 15 */-5px 70px $black, 0px 70px $blue, 5px 70px $blue, 10px 70px $blue, 15px 70px $blue, 20px 70px $black, 25px 70px $blue, 30px 70px $blue, 35px 70px $blue, 40px 70px $blue, 45px 70px $blue, 50px 70px $blue, 55px 70px $black, 60px 70px $black,/* Line 16 */-5px 75px $black, 0px 75px #fff, 5px 75px $blue, 10px 75px #fff, 15px 75px $black, 20px 75px $black, 25px 75px $black, 30px 75px $black, 35px 75px $black, 40px 75px $black, 45px 75px $black, 50px 75px $black,/* Line 17 */ 0px 80px $black, 5px 80px $black, 10px 80px $black
+	
+	
+	
+//.watchme
+	position: absolute
+	bottom: 5%
+	right: 5%
+	text-align: center
+	span
+		background: #fff
+	p
+		color: black
+		font-family: 'Open Sans', sans-serif
+		margin: 0
+	.fa
+		vertical-align: middle
+		color: #ff0000
+		font-size: 3em			

@@ -1,0 +1,179 @@
+/* COLORS */
+$bg: #3F5682
+$sesam: #FFE29B
+$bun: #F2B724
+$dbun: #E8BB4C
+$green: #79AF60
+$red: #E05C5C
+$yellow: #FFE100
+$black: #444444
+$brown: #895643
+$pineapple: #FFFA84
+$ketchup: #C45050
+
+*
+	box-sizing: border-box
+
+body, html
+	height: 100%
+	width: 100%
+	background: $bg
+
+.canvas
+	position: relative
+	top: 15%
+	margin: auto
+	height: 300px
+	width: 300px
+	background: $bg
+
+%buns
+	position: absolute
+	left: 10%
+	height: 10%
+	width: 80%
+	background: $bun
+	z-index: 2
+	
+.buns
+	.top
+		@extend %buns
+		height: 21%
+		top: 18%
+		border-radius: 4em 4em 5px 5px
+		border-top: 2px solid $dbun
+	
+	.bottom
+		@extend %buns
+		left: 12.5%
+		bottom: 26%
+		width: 75%
+		border-radius: 5px 5px 4em 4em
+		border-bottom: 2px solid $dbun
+	
+.patty
+	position: absolute
+	bottom: 36%
+	left: 7.5%
+	height: 10%
+	width: 85%
+	background: $brown
+	border-radius: 0.7em
+
+.cheese
+	position: absolute
+	bottom: 37.5%
+	left: 10%
+	height: 0
+	width: 0
+	border-top: 40px solid $yellow
+	border-left: 120px solid transparent
+	border-right: 120px solid transparent
+
+%tomato	
+	position: absolute
+	bottom: 46%
+	height: 5%
+	width: 40%
+	background: $red
+	border-radius: 2em
+
+.tomatoes
+	.left
+		@extend %tomato
+		left: 10%
+		transform: rotate(-5deg)
+	.right
+		@extend %tomato
+		right: 10%
+		transform: rotate(2deg)
+	
+%salad
+	position: absolute
+	top: 44%
+	height: 8%
+	width: 55%
+	background: $green
+	border-radius: 50%
+	border: 5px solid $green
+
+.salad
+	.left
+		@extend %salad
+		left: 5%
+	.right
+		@extend %salad
+		right: 5%
+	
+.pineapple
+	position: absolute
+	left: 12.5%
+	top: 37%
+	height: 10%
+	width: 75%
+	background: $pineapple
+	border-radius: 0.5em
+	z-index: 1
+
+%sesamseed
+	position: absolute
+	top: 20%
+	height: 2.5%
+	width: 2.5%
+	background: $sesam
+	border-radius: 1em
+	z-index: 3
+
+.sesam
+	.seed
+		@extend %sesamseed
+	
+	.seed:nth-child(1)
+		left: 35%
+	.seed:nth-child(2)
+		top: 23%
+		left: 45%
+	.seed:nth-child(3)
+		top: 25%
+		left: 30%
+	.seed:nth-child(4)
+		top: 30%
+		left: 37%
+	.seed:nth-child(5)
+		top: 30%
+		left: 48%
+	.seed:nth-child(6)
+		top: 28%
+		right: 35%
+	.seed:nth-child(7)
+		top: 26%
+		right: 43%
+	.seed:nth-child(8)
+		top: 22%
+		right: 35%
+	
+%bite
+	position: absolute
+	height: 40%
+	width: 40%
+	background: $bg
+	border-radius: 50%
+
+.bites
+	position: absolute
+	top: 13%
+	right: -5%
+	height: 45%
+	width: 45%
+	z-index: 3
+
+	.bite
+		@extend %bite
+	.bite:nth-child(1)
+		left: 20%
+	.bite:nth-child(2)
+		top: 25%
+		left: 28%
+	.bite:nth-child(3)
+		top: 45%
+		left: 45%

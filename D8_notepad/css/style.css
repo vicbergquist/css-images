@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #A4BFEB;
+}
+
+.canvas {
+  position: relative;
+  top: 15%;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  background: #A4BFEB;
+}
+
+.rings-top, .rings-bottom {
+  position: absolute;
+  top: 5%;
+  left: 23%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.rings-top li, .rings-bottom li {
+  margin-bottom: 10px;
+  height: 13px;
+  width: 16px;
+  border-radius: 50%;
+}
+
+.rings-top {
+  z-index: 2;
+}
+.rings-top li {
+  border-top: 4px solid #E8D8E3;
+  border-bottom: 4px solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+.rings-top li:first-child {
+  margin-top: 15px;
+}
+
+.rings-bottom {
+  z-index: 0;
+}
+.rings-bottom li {
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid #E8D8E3;
+  border-left: 4px solid #E8D8E3;
+  border-right: 4px solid transparent;
+}
+.rings-bottom li:first-child {
+  margin-top: 15px;
+}
+
+.notepad, .notepad .notepad-copy {
+  position: absolute;
+  border-radius: 5px;
+}
+
+.notepad {
+  top: 5%;
+  left: 25%;
+  height: 50%;
+  width: 50%;
+  background: #E8D8E3;
+}
+.notepad .notepad-copy {
+  top: -2%;
+  left: -2%;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.notepad ul {
+  position: absolute;
+  left: 10%;
+  height: 100%;
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.notepad ul li {
+  height: 1px;
+  width: 100%;
+  background: #E8D8E3;
+  margin-top: 17px;
+}
+.notepad ul li:first-child {
+  margin-top: 26px;
+}
